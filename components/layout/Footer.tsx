@@ -30,7 +30,7 @@ const navigation = {
 
 export function Footer() {
     return (
-        <footer className="bg-primary text-white relative overflow-hidden font-sans border-t border-red-800">
+        <footer className="bg-[#B22222] text-white relative overflow-hidden font-sans border-t border-red-800">
             {/* Background Pattern */}
             <div className="absolute inset-x-0 top-0 opacity-10">
                 <WarliBorder className="w-full text-white" />

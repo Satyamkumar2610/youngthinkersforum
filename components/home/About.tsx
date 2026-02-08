@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BlockPrintIcon, MandalaBackground } from "@/components/ui/patterns";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const benefits = [
     "Rigorous intellectual debate",
@@ -13,7 +14,7 @@ export function About() {
         <section className="py-24 bg-white">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
-                    <div className="lg:pr-8 lg:pt-4">
+                    <ScrollReveal animation="slide-in" className="lg:pr-8 lg:pt-4">
                         <div className="lg:max-w-lg">
                             {/* Tilak-style Heading */}
                             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-serif tilak-heading">
@@ -38,8 +39,8 @@ export function About() {
                                 </Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="relative">
+                    </ScrollReveal>
+                    <ScrollReveal animation="scale-up" delay={0.2} className="relative">
                         {/* Abstract visual representation instead of a placeholder image */}
                         <div className="aspect-[4/3] w-full rounded-xl bg-gray-50 object-cover shadow-xl ring-1 ring-gray-400/10 flex items-center justify-center overflow-hidden relative">
                             <MandalaBackground className="absolute inset-0 text-primary/10 animate-spin-slow w-full h-full p-12" />
@@ -51,7 +52,7 @@ export function About() {
                             {/* Decorative element */}
                             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"></div>
                         </div>
-                    </div>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>
