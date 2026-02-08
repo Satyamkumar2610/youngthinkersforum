@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { BlockPrintIcon, MandalaBackground, LotusPattern } from "@/components/ui/patterns";
+import { BlockPrintIcon, MandalaBackground, LotusPattern, JharokaWindow, MehndiPattern, MadhubaniMotif } from "@/components/ui/patterns";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
+import { Perspective3DCard, CulturalReveal } from "@/components/ui/IndianAnimations";
 import { motion } from "framer-motion";
 
 const benefits = [
@@ -18,9 +19,17 @@ export function About() {
             {/* Subtle background pattern */}
             <div className="absolute inset-0 pattern-rangoli opacity-30 pointer-events-none" />
 
+            {/* Decorative corner elements */}
+            <div className="absolute top-0 left-0 opacity-10 -rotate-12">
+                <MehndiPattern className="text-primary" size={150} />
+            </div>
+            <div className="absolute top-0 right-0 opacity-10 rotate-12 scale-x-[-1]">
+                <MehndiPattern className="text-primary" size={150} />
+            </div>
+
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
-                    <ScrollReveal animation="slide-in" className="lg:pr-8 lg:pt-4">
+                    <CulturalReveal direction="left" className="lg:pr-8 lg:pt-4">
                         <div className="lg:max-w-lg">
                             {/* Tilak-style Heading */}
                             <motion.h2
@@ -38,7 +47,7 @@ export function About() {
 
                             {/* Staggered benefits list */}
                             <StaggerContainer className="mt-10 max-w-xl space-y-6 text-base leading-7 text-gray-600 lg:max-w-none" delay={0.2}>
-                                {benefits.map((benefit) => (
+                                {benefits.map((benefit, index) => (
                                     <StaggerItem key={benefit}>
                                         <motion.div
                                             className="relative pl-9 group cursor-default"
@@ -81,63 +90,80 @@ export function About() {
                                 </Link>
                             </motion.div>
                         </div>
-                    </ScrollReveal>
+                    </CulturalReveal>
 
-                    <ScrollReveal animation="scale-up" delay={0.2} className="relative">
-                        {/* Abstract visual representation */}
-                        <motion.div
-                            className="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-gray-50 to-red-50/30 object-cover shadow-xl ring-1 ring-gray-400/10 flex items-center justify-center overflow-hidden relative group"
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            {/* Animated mandala background */}
-                            <motion.div
-                                className="absolute inset-0 flex items-center justify-center"
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                            >
-                                <MandalaBackground className="text-primary/10 w-[150%] h-[150%]" />
-                            </motion.div>
-
-                            {/* Jaali pattern overlay */}
-                            <div className="absolute inset-0 bg-jaali opacity-20" />
-
-                            {/* Central content */}
-                            <motion.div
-                                className="text-center p-8 relative z-10"
-                                initial={{ scale: 0.9, opacity: 0 }}
-                                whileInView={{ scale: 1, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
-                            >
-                                <motion.span
-                                    className="font-serif text-7xl text-primary/30 font-bold block"
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 200 }}
-                                >
-                                    YTF
-                                </motion.span>
-                                <span className="text-sm text-gray-400 uppercase tracking-widest mt-2 block">Est. 2026</span>
-                            </motion.div>
-
-                            {/* Decorative lotus */}
-                            <div className="absolute bottom-4 right-4 opacity-20">
-                                <LotusPattern className="text-primary" size={80} />
+                    <CulturalReveal direction="right" delay={0.2} className="relative">
+                        {/* Jharoka Window Frame */}
+                        <Perspective3DCard className="relative" intensity={8}>
+                            <div className="absolute -inset-8 opacity-30 pointer-events-none">
+                                <JharokaWindow className="text-primary w-full h-full" size={400} />
                             </div>
 
-                            {/* Decorative glow */}
                             <motion.div
-                                className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"
-                                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                                transition={{ duration: 4, repeat: Infinity }}
-                            />
-                            <motion.div
-                                className="absolute -top-10 -left-10 w-32 h-32 bg-accent/5 rounded-full blur-2xl"
-                                animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
-                                transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-                            />
-                        </motion.div>
-                    </ScrollReveal>
+                                className="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-gray-50 to-red-50/30 object-cover shadow-xl ring-1 ring-gray-400/10 flex items-center justify-center overflow-hidden relative group"
+                                whileHover={{ scale: 1.02 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                {/* Animated mandala background */}
+                                <motion.div
+                                    className="absolute inset-0 flex items-center justify-center"
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                                >
+                                    <MandalaBackground className="text-primary/10 w-[150%] h-[150%]" />
+                                </motion.div>
+
+                                {/* Jaali pattern overlay */}
+                                <div className="absolute inset-0 bg-jaali opacity-20" />
+
+                                {/* Madhubani decorations */}
+                                <div className="absolute top-4 left-4 opacity-20">
+                                    <MadhubaniMotif type="peacock" className="text-primary" size={50} />
+                                </div>
+                                <div className="absolute top-4 right-4 opacity-20 scale-x-[-1]">
+                                    <MadhubaniMotif type="fish" className="text-primary" size={60} />
+                                </div>
+
+                                {/* Central content */}
+                                <motion.div
+                                    className="text-center p-8 relative z-10"
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.3 }}
+                                >
+                                    <motion.span
+                                        className="font-serif text-7xl text-primary/30 font-bold block"
+                                        whileHover={{ scale: 1.1 }}
+                                        transition={{ type: "spring", stiffness: 200 }}
+                                    >
+                                        YTF
+                                    </motion.span>
+                                    <span className="text-sm text-gray-400 uppercase tracking-widest mt-2 block">Est. 2026</span>
+                                </motion.div>
+
+                                {/* Decorative lotus */}
+                                <div className="absolute bottom-4 right-4 opacity-20">
+                                    <LotusPattern className="text-primary" size={80} />
+                                </div>
+                                <div className="absolute bottom-4 left-4 opacity-15">
+                                    <MadhubaniMotif type="lotus" className="text-accent" size={60} />
+                                </div>
+
+                                {/* Decorative glow */}
+                                <motion.div
+                                    className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"
+                                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                                    transition={{ duration: 4, repeat: Infinity }}
+                                />
+                                <motion.div
+                                    className="absolute -top-10 -left-10 w-32 h-32 bg-accent/5 rounded-full blur-2xl"
+                                    animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+                                    transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+                                />
+                            </motion.div>
+                        </Perspective3DCard>
+                    </CulturalReveal>
                 </div>
             </div>
         </section>

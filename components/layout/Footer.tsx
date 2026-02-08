@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import { WarliBorder, WaveDivider, AnimatedDiya } from "@/components/ui/patterns";
+import { WarliBorder, WaveDivider, AnimatedDiya, IndianArchBorder, MehndiPattern, PaisleyButa, MadhubaniMotif } from "@/components/ui/patterns";
+import { FloatingCulturalElement } from "@/components/ui/IndianAnimations";
 import { motion } from "framer-motion";
 
 const navigation = {
@@ -34,24 +35,55 @@ const navigation = {
 export function Footer() {
     return (
         <footer className="bg-[#B22222] text-white relative overflow-hidden font-sans">
+            {/* Mehndi Pattern Border at Top */}
+            <div className="absolute top-0 left-0 right-0 opacity-10">
+                <IndianArchBorder className="text-white" />
+            </div>
+
             {/* Wave Divider at top */}
             <WaveDivider color="#FFFFFF" flip className="h-16 -mb-1" />
 
             {/* Background Pattern */}
-            <div className="absolute inset-x-0 top-16 opacity-10">
+            <div className="absolute inset-x-0 top-20 opacity-10">
                 <WarliBorder className="w-full text-white" />
             </div>
 
+            {/* Mehndi corner decorations */}
+            <div className="absolute top-20 left-0 opacity-8">
+                <MehndiPattern className="text-white" size={100} />
+            </div>
+            <div className="absolute top-20 right-0 opacity-8 scale-x-[-1]">
+                <MehndiPattern className="text-white" size={100} />
+            </div>
+
+            {/* Floating cultural elements */}
+            <FloatingCulturalElement
+                className="absolute top-32 left-20 opacity-15"
+                delay={0}
+                amplitude={10}
+                duration={7}
+            >
+                <PaisleyButa className="text-accent" size={30} />
+            </FloatingCulturalElement>
+            <FloatingCulturalElement
+                className="absolute top-40 right-24 opacity-12"
+                delay={2}
+                amplitude={12}
+                duration={8}
+            >
+                <MadhubaniMotif type="lotus" className="text-white" size={40} />
+            </FloatingCulturalElement>
+
             {/* Decorative Diyas */}
             <motion.div
-                className="absolute top-24 left-10 opacity-20"
+                className="absolute top-28 left-10 opacity-20"
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
                 <AnimatedDiya size={35} />
             </motion.div>
             <motion.div
-                className="absolute top-32 right-16 opacity-20"
+                className="absolute top-36 right-16 opacity-20"
                 animate={{ y: [5, -5, 5] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -234,7 +266,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                {/* Bottom bar */}
+                {/* Bottom bar with cultural flair */}
                 <motion.div
                     className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24"
                     initial={{ opacity: 0 }}
@@ -246,13 +278,17 @@ export function Footer() {
                         <p className="text-xs leading-5 text-red-200 text-center md:text-left">
                             &copy; {new Date().getFullYear()} Young Thinkers' Forum. All rights reserved.
                         </p>
-                        <motion.p
-                            className="text-xs text-red-300 font-serif italic"
-                            animate={{ opacity: [0.7, 1, 0.7] }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                        >
-                            Satyam Eva Jayate
-                        </motion.p>
+                        <div className="flex items-center gap-4">
+                            <MadhubaniMotif type="lotus" className="text-accent opacity-30" size={24} />
+                            <motion.p
+                                className="text-xs text-accent font-serif italic"
+                                animate={{ opacity: [0.7, 1, 0.7] }}
+                                transition={{ duration: 3, repeat: Infinity }}
+                            >
+                                सत्यमेव जयते
+                            </motion.p>
+                            <MadhubaniMotif type="lotus" className="text-accent opacity-30 scale-x-[-1]" size={24} />
+                        </div>
                     </div>
                 </motion.div>
             </div>

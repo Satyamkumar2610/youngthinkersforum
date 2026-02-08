@@ -1,10 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { WarliBorder, MandalaBackground, ScrollIndicator, AnimatedDiya } from "@/components/ui/patterns";
+import { ArrowRight } from "lucide-react";
+import {
+    WarliBorder,
+    MandalaBackground,
+    ScrollIndicator,
+    AnimatedDiya,
+    TajMahalSilhouette,
+    PaisleyButa,
+    MadhubaniMotif
+} from "@/components/ui/patterns";
 import { FloatingElements } from "@/components/ui/FloatingElements";
 import { AnimatedText } from "@/components/ui/AnimatedText";
+import { FloatingCulturalElement, PulsingGlow } from "@/components/ui/IndianAnimations";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -16,29 +25,90 @@ export function Hero() {
     });
 
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+    const monumentY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
     const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     return (
-        <div ref={ref} className="relative isolate px-6 pt-14 lg:px-8 bg-[#B22222] pb-12 overflow-hidden min-h-[95vh] flex items-center justify-center">
+        <div ref={ref} className="relative isolate px-6 pt-14 lg:px-8 bg-[#B22222] pb-12 overflow-hidden min-h-[100vh] flex items-center justify-center">
             {/* Floating decorative elements */}
             <FloatingElements
-                count={20}
-                color="rgba(212, 175, 55, 0.25)"
-                minSize={4}
-                maxSize={16}
+                count={25}
+                color="rgba(212, 175, 55, 0.2)"
+                minSize={3}
+                maxSize={12}
             />
+
+            {/* Taj Mahal Silhouette - Main parallax background */}
+            <motion.div
+                style={{ y: monumentY }}
+                className="absolute inset-x-0 bottom-0 z-0 opacity-15 pointer-events-none flex justify-center"
+            >
+                <TajMahalSilhouette className="text-white" size={600} />
+            </motion.div>
+
+            {/* Floating Paisley elements */}
+            <FloatingCulturalElement
+                className="absolute left-[5%] top-[20%] opacity-20"
+                delay={0}
+                amplitude={15}
+                duration={7}
+            >
+                <PaisleyButa className="text-accent" size={50} />
+            </FloatingCulturalElement>
+            <FloatingCulturalElement
+                className="absolute right-[8%] top-[25%] opacity-20"
+                delay={1}
+                amplitude={18}
+                duration={8}
+            >
+                <PaisleyButa className="text-white" size={40} />
+            </FloatingCulturalElement>
+            <FloatingCulturalElement
+                className="absolute left-[15%] bottom-[30%] opacity-15"
+                delay={2}
+                amplitude={12}
+                duration={6}
+            >
+                <PaisleyButa className="text-accent" size={35} />
+            </FloatingCulturalElement>
+            <FloatingCulturalElement
+                className="absolute right-[12%] bottom-[35%] opacity-15"
+                delay={0.5}
+                amplitude={20}
+                duration={9}
+            >
+                <PaisleyButa className="text-white" size={45} />
+            </FloatingCulturalElement>
+
+            {/* Floating Madhubani motifs */}
+            <FloatingCulturalElement
+                className="absolute left-[20%] top-[15%] opacity-15"
+                delay={1.5}
+                amplitude={10}
+                duration={8}
+            >
+                <MadhubaniMotif type="peacock" className="text-accent" size={50} />
+            </FloatingCulturalElement>
+            <FloatingCulturalElement
+                className="absolute right-[18%] top-[40%] opacity-12"
+                delay={2.5}
+                amplitude={14}
+                duration={7}
+            >
+                <MadhubaniMotif type="lotus" className="text-white" size={60} />
+            </FloatingCulturalElement>
 
             {/* Floating Diyas on sides */}
             <motion.div
-                className="absolute left-10 top-1/4 opacity-30"
+                className="absolute left-10 top-1/4 opacity-25"
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
                 <AnimatedDiya size={50} />
             </motion.div>
             <motion.div
-                className="absolute right-10 top-1/3 opacity-30"
+                className="absolute right-10 top-1/3 opacity-25"
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -48,7 +118,7 @@ export function Hero() {
             {/* 3D Background Pattern - Parallax Layer */}
             <motion.div
                 style={{ y: backgroundY }}
-                className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+                className="absolute inset-0 z-0 opacity-15 pointer-events-none"
             >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%]">
                     <MandalaBackground className="w-full h-full text-black mix-blend-overlay animate-spin-slow-reverse origin-center" />
@@ -57,7 +127,7 @@ export function Hero() {
 
             {/* Secondary mandala for depth */}
             <motion.div
-                style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "30%"]) }}
+                style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]) }}
                 className="absolute inset-0 z-0 opacity-10 pointer-events-none"
             >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%]">
@@ -109,59 +179,72 @@ export function Hero() {
                         />
                     </div>
 
-                    {/* Animated headline */}
-                    <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-serif drop-shadow-lg">
+                    {/* Animated headline with 3D effect */}
+                    <motion.h1
+                        className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl font-serif drop-shadow-lg"
+                        style={{ textShadow: "0 4px 30px rgba(0,0,0,0.3)" }}
+                    >
                         <AnimatedText
-                            text="Cultivating the Next Generation of Intellectuals"
+                            text="Cultivating the Next"
                             delay={0.6}
-                            staggerChildren={0.05}
+                            staggerChildren={0.04}
                         />
-                    </h1>
+                        <br />
+                        <span className="text-accent">
+                            <AnimatedText
+                                text="Generation of Intellectuals"
+                                delay={1.2}
+                                staggerChildren={0.04}
+                            />
+                        </span>
+                    </motion.h1>
 
                     <motion.p
-                        className="mt-6 text-lg leading-8 text-red-100 font-light max-w-2xl mx-auto"
+                        className="mt-8 text-lg leading-8 text-red-100/90 font-light max-w-2xl mx-auto"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.2, duration: 0.8 }}
+                        transition={{ delay: 1.8, duration: 0.8 }}
                     >
                         The Young Thinkers' Forum is a dedicated space for rigorous debate, critical analysis, and the nurturing of young Indian thought leaders.
                     </motion.p>
 
-                    {/* CTA Buttons */}
+                    {/* CTA Buttons with cultural styling */}
                     <motion.div
-                        className="mt-10 flex items-center justify-center gap-x-6"
+                        className="mt-12 flex items-center justify-center gap-x-6"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.4, duration: 0.6 }}
+                        transition={{ delay: 2.2, duration: 0.6 }}
                     >
                         <Link href="/join">
-                            <motion.button
-                                className="group relative overflow-hidden rounded-none bg-white px-8 py-4 text-sm font-bold text-[#B22222] shadow-xl flex items-center gap-2"
-                                whileHover={{ scale: 1.05, y: -2 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <span className="relative z-10 flex items-center gap-2">
-                                    Join the Discussion
-                                    <motion.span
-                                        animate={{ x: [0, 4, 0] }}
-                                        transition={{ duration: 1.5, repeat: Infinity }}
-                                    >
-                                        <ArrowRight className="w-4 h-4" />
-                                    </motion.span>
-                                </span>
-                                {/* Shimmer effect */}
-                                <motion.div
-                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full"
-                                    animate={{ translateX: ["−100%", "200%"] }}
-                                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
-                                />
-                            </motion.button>
+                            <PulsingGlow>
+                                <motion.button
+                                    className="group relative overflow-hidden rounded-none bg-white px-8 py-4 text-sm font-bold text-[#B22222] shadow-xl flex items-center gap-2 hover:bg-red-50 transition-colors"
+                                    whileHover={{ scale: 1.05, y: -2 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        Join the Discussion
+                                        <motion.span
+                                            animate={{ x: [0, 4, 0] }}
+                                            transition={{ duration: 1.5, repeat: Infinity }}
+                                        >
+                                            <ArrowRight className="w-4 h-4" />
+                                        </motion.span>
+                                    </span>
+                                    {/* Shimmer effect */}
+                                    <motion.div
+                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full"
+                                        animate={{ translateX: ["−100%", "200%"] }}
+                                        transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+                                    />
+                                </motion.button>
+                            </PulsingGlow>
                         </Link>
                         <Link
                             href="/about"
                             className="group text-sm font-semibold leading-6 text-white hover:text-accent transition-colors flex items-center gap-1"
                         >
-                            <span>Learn more</span>
+                            <span className="border-b border-white/30 hover:border-accent transition-colors pb-0.5">Learn more</span>
                             <motion.span
                                 aria-hidden="true"
                                 animate={{ x: [0, 4, 0] }}
@@ -179,18 +262,18 @@ export function Hero() {
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 z-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 0.5 }}
+                transition={{ delay: 2.5, duration: 0.5 }}
             >
                 <ScrollIndicator />
             </motion.div>
 
             {/* Warli Border at bottom */}
             <div className="absolute inset-x-0 bottom-0 z-10 w-full translate-y-1">
-                <WarliBorder className="text-white/30 w-full" />
+                <WarliBorder className="text-white/25 w-full" />
             </div>
 
             {/* Gradient overlay at bottom for smooth transition */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/10 to-transparent pointer-events-none" />
         </div>
     );
 }
