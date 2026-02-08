@@ -240,11 +240,13 @@ export function ParallaxLayer({
 export function CulturalReveal({
     children,
     className = "",
-    direction = "up"
+    direction = "up",
+    delay = 0
 }: {
     children: ReactNode;
     className?: string;
     direction?: "up" | "down" | "left" | "right";
+    delay?: number;
 }) {
     const variants = {
         up: { y: 60, opacity: 0 },
@@ -261,6 +263,7 @@ export function CulturalReveal({
             viewport={{ once: true, margin: "-50px" }}
             transition={{
                 duration: 0.8,
+                delay,
                 ease: [0.215, 0.61, 0.355, 1],
             }}
         >

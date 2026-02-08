@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import {
     WarliBorder,
     MandalaBackground,
-    ScrollIndicator,
     AnimatedDiya,
     TajMahalSilhouette,
     PaisleyButa,
@@ -257,15 +256,7 @@ export function Hero() {
                 </motion.div>
             </motion.div>
 
-            {/* Scroll indicator */}
-            <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 z-20"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.5, duration: 0.5 }}
-            >
-                <ScrollIndicator />
-            </motion.div>
+
 
             {/* Warli Border at bottom */}
             <div className="absolute inset-x-0 bottom-0 z-10 w-full translate-y-1">
