@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 
@@ -47,35 +49,40 @@ export function EventGrid() {
                     {events.map((event) => (
                         <div
                             key={event.id}
-                            className="flex flex-col items-start justify-between bg-white border border-gray-200 p-6 shadow-sm transition-all duration-300 hover:shadow-md group relative overflow-hidden"
+                            className="flex flex-col items-start justify-between bg-white/50 border border-white/60 p-6 rounded-xl transition-all duration-500 group relative overflow-hidden backdrop-blur-sm hover:bg-white"
+                            style={{ boxShadow: 'var(--shadow-card)' }}
+                            onMouseEnter={(e) => e.currentTarget.style.boxShadow = 'var(--shadow-floating)'}
+                            onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'var(--shadow-card)'}
                         >
-                            {/* Red Top Border on Hover */}
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 transition-all duration-300 group-hover:bg-primary group-hover:h-1.5"></div>
+                            {/* Red Top Border: Center-Out Expansion */}
+                            <div className="absolute top-0 left-0 w-full h-1 bg-transparent flex justify-center">
+                                <div className="h-full w-full bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center ease-out"></div>
+                            </div>
 
-                            <div className="flex items-center gap-x-4 text-xs mt-2">
-                                <time dateTime={event.date} className="text-gray-500 font-medium flex items-center gap-1">
+                            <div className="flex items-center gap-x-4 text-xs mt-2 w-full">
+                                <time dateTime={event.date} className="text-gray-500 font-medium flex items-center gap-1 bg-gray-50 px-2 py-1 rounded-md border border-gray-100">
                                     <Calendar className="w-3 h-3 text-primary" /> {event.date}
                                 </time>
-                                <div className="relative z-10 rounded-full bg-red-50 px-3 py-1.5 font-medium text-primary hover:bg-red-100">
+                                <div className="ml-auto relative z-10 rounded-full bg-red-50/50 px-3 py-1 font-medium text-primary border border-red-100/50 group-hover:bg-red-50 transition-colors">
                                     {event.category}
                                 </div>
                             </div>
-                            <div className="group relative">
-                                <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 font-serif">
+                            <div className="group relative mt-4">
+                                <h3 className="text-xl font-bold leading-7 text-gray-900 group-hover:text-primary transition-colors font-serif tracking-tight">
                                     <Link href={`/events/${event.id}`}>
                                         <span className="absolute inset-0" />
                                         {event.title}
                                     </Link>
                                 </h3>
-                                <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                                <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600 font-normal">
                                     {event.description}
                                 </p>
                             </div>
-                            <div className="mt-4 flex items-center text-xs text-gray-500 gap-1">
+                            <div className="mt-6 flex items-center text-xs text-gray-500 gap-1 border-t border-gray-100 pt-4 w-full">
                                 <MapPin className="w-3 h-3 text-gray-400" /> {event.location}
                             </div>
-                            <div className="mt-6 w-full">
-                                <span className="text-primary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            <div className="mt-4 w-full">
+                                <span className="text-primary text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all translate-x-0 group-hover:translate-x-1">
                                     View Details <ArrowRight className="w-4 h-4" />
                                 </span>
                             </div>

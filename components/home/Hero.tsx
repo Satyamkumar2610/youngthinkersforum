@@ -4,7 +4,7 @@ import { WarliBorder, MandalaBackground } from "@/components/ui/patterns";
 
 export function Hero() {
     return (
-        <div className="relative isolate px-6 pt-14 lg:px-8 bg-primary pb-12 overflow-hidden">
+        <div className="relative isolate px-6 pt-14 lg:px-8 bg-[#B22222] pb-12 overflow-hidden">
             {/* Background Pattern Overlay */}
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
                 <MandalaBackground className="w-full h-full text-black mix-blend-overlay scale-150 animate-spin-slow-reverse origin-center" />
@@ -34,7 +34,7 @@ export function Hero() {
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                     <Link
                         href="/join"
-                        className="rounded-none bg-white px-5 py-3 text-sm font-semibold text-primary shadow-lg hover:bg-white/90 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white flex items-center gap-2"
+                        className="rounded-none bg-white px-5 py-3 text-sm font-semibold text-[#B22222] shadow-lg hover:bg-white/90 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white flex items-center gap-2"
                     >
                         Join the Discussion <ArrowRight className="w-4 h-4" />
                     </Link>

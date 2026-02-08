@@ -1,31 +1,43 @@
 @import "tailwindcss";
 
-@theme {
+:root {
+  /* Semantic Brand Colors */
+  --brand-red: #B22222;
+  /* Geru: Signals, Buttons, Tilak */
+  --brand-gold: #D4AF37;
+  /* Royal Gold: Accents, Halos */
+  --bg-white: #FFFAF0;
+  /* Warm White: Main Canvas */
+  --bg-paper: #FFFFFF;
+  /* Pure White: Cards, Elevated Surfaces */
+  --text-charcoal: #111111;
+  /* Primary Text */
+  --text-muted: #737373;
+  /* Secondary Text */
+
+  /* Tailwind Mappings (Backward Compatibility) */
+  --primary: var(--brand-red);
+  --primary-foreground: #ffffff;
+  --accent: var(--brand-gold);
+  --background: var(--bg-white);
+  --foreground: var(--text-charcoal);
+  --muted: #f3e5e5;
+  --muted-foreground: var(--text-muted);
+  --border: #e6dbdb;
+  --input: #e6dbdb;
+
+  /* Fonts */
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 
-  --color-primary: #B22222;
-  --color-primary-foreground: #ffffff;
+  /* Industry-Grade Shadows */
+  --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.02), 0 2px 4px -2px rgb(0 0 0 / 0.02);
+  --shadow-floating: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.3);
 
-  --color-background: #FFFAF0;
-  /* Warm White */
-  --color-foreground: #111111;
-
-  --color-accent: #D4AF37;
-  /* Royal Gold */
-
-  --color-muted: #f3e5e5;
-  --color-muted-foreground: #737373;
-
-  --color-border: #e6dbdb;
-  --color-input: #e6dbdb;
-}
-
-:root {
-  --background: #FFFAF0;
-  --foreground: #111111;
-  --primary: #B22222;
-  --accent: #D4AF37;
+  /* Animation Durations */
+  --animate-float: float 6s ease-in-out infinite;
 }
 
 body {
@@ -44,12 +56,39 @@ h6 {
 }
 
 .tilak-heading {
-  @apply relative pl-4;
+  position: relative;
+  padding-left: 1.25rem;
 }
 
 .tilak-heading::before {
   content: "";
-  @apply absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-[100%] bg-primary rounded-full;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 100%;
+  background-color: var(--brand-red);
+  border-radius: 9999px;
+}
+
+/* Indian Minimalism: Hairline Border */
+.hairline-border {
+  border-bottom: 0.5px solid rgba(178, 34, 34, 0.2);
+  position: relative;
+}
+
+.hairline-border::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  /* Centered on the line */
+  width: 4px;
+  height: 4px;
+  background-color: var(--brand-red);
+  border-radius: 50%;
 }
 
 /* Minimalist Warli/Aipan Pattern (CSS implementation) */
@@ -73,4 +112,22 @@ h6 {
   background-position: 0 0, 12px 12px;
   opacity: 0.1;
   /* Bold visibility */
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.02), 0 2px 4px -2px rgb(0 0 0 / 0.02);
+}
+
+.glass-header {
+  background: rgba(255, 250, 240, 0.85);
+  /* Warm white glass */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(178, 34, 34, 0.05);
+  /* Subtle red border */
 }

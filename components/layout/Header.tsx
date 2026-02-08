@@ -58,7 +58,7 @@ export function Header() {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link
                         href="/join"
-                        className="rounded-none bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        className="rounded-none bg-[#B22222] px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B22222]"
                     >
                         Join the Forum <span aria-hidden="true">&rarr;</span>
                     </Link>
