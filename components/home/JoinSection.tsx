@@ -1,54 +1,126 @@
+"use client";
+
 import Link from "next/link";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
+import { FloatingElements } from "@/components/ui/FloatingElements";
+import { motion } from "framer-motion";
+import { BookOpen, Users, ArrowRight } from "lucide-react";
+
+const features = [
+    {
+        icon: BookOpen,
+        title: "Weekly Articles",
+        description: "Access exclusive analysis and opinion pieces from our members.",
+    },
+    {
+        icon: Users,
+        title: "Global Network",
+        description: "Connect with like-minded individuals from universities across India.",
+    },
+];
 
 export function JoinSection() {
     return (
         <section className="relative isolate overflow-hidden bg-white py-16 sm:py-24 lg:py-32">
+            {/* Animated background gradient */}
+            <motion.div
+                className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"
+                animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.15, 0.25, 0.15],
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                aria-hidden="true"
+            >
+                <div
+                    className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary/30 to-accent/30"
+                    style={{
+                        clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
+                    }}
+                />
+            </motion.div>
+
+            {/* Floating elements */}
+            <FloatingElements count={10} color="rgba(178, 34, 34, 0.08)" minSize={6} maxSize={14} />
+
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <ScrollReveal width="100%">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-                        <div className="max-w-xl lg:max-w-lg">
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-serif">
+                        {/* Left content */}
+                        <motion.div
+                            className="max-w-xl lg:max-w-lg"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-serif tilak-heading tilak-heading-animated">
                                 Join the Movement
                             </h2>
                             <p className="mt-4 text-lg leading-8 text-gray-600">
                                 Be a part of the Young Thinkers' Forum. Contribute your voice to the discourse that matters.
                                 Membership is open to all students and young professionals.
                             </p>
-                            <div className="mt-6 flex max-w-md gap-x-4">
-                                <Link
-                                    href="/join"
-                                    className="flex-none rounded-md bg-[#B22222] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 transition-colors"
-                                >
-                                    Apply for Membership
+                            <motion.div
+                                className="mt-8"
+                                whileHover={{ scale: 1.02 }}
+                            >
+                                <Link href="/join">
+                                    <motion.button
+                                        className="group relative overflow-hidden rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg flex items-center gap-2"
+                                        whileHover={{ y: -2 }}
+                                        whileTap={{ scale: 0.98 }}
+                                    >
+                                        <span className="relative z-10 flex items-center gap-2">
+                                            Apply for Membership
+                                            <motion.span
+                                                animate={{ x: [0, 4, 0] }}
+                                                transition={{ duration: 1.5, repeat: Infinity }}
+                                            >
+                                                <ArrowRight className="w-4 h-4" />
+                                            </motion.span>
+                                        </span>
+                                        {/* Shimmer effect */}
+                                        <motion.div
+                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+                                            animate={{ translateX: ["−100%", "200%"] }}
+                                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                                        />
+                                    </motion.button>
                                 </Link>
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
-                            <div className="flex flex-col items-start">
-                                <div className="rounded-md bg-red-50 p-2 ring-1 ring-red-100">
-                                    <svg className="h-6 w-6 text-[#B22222]" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                </div>
-                                <dt className="mt-4 font-semibold text-gray-900">Weekly Articles</dt>
-                                <dd className="mt-2 leading-7 text-gray-600">Access exclusive analysis and opinion pieces from our members.</dd>
-                            </div>
-                            <div className="flex flex-col items-start">
-                                <div className="rounded-md bg-red-50 p-2 ring-1 ring-red-100">
-                                    <svg className="h-6 w-6 text-[#B22222]" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 5.472m0 0a9.09 9.09 0 00-3.279 3.298m.944-5.463A54.01 54.01 0 0116 10.5M3.75 7.5l.625 1.065a4.871 4.871 0 010 3.902l-.625 1.065m13.75-3.869l.625-1.065a4.871 4.871 0 010-3.902l-.625-1.065m-3-12.869l-.625 1.065a4.871 4.871 0 01-3.902 0l-.625-1.065" />
-                                    </svg>
-                                </div>
-                                <dt className="mt-4 font-semibold text-gray-900">Global Network</dt>
-                                <dd className="mt-2 leading-7 text-gray-600">Connect with like-minded individuals from universities across India.</dd>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Right features */}
+                        <StaggerContainer
+                            className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2"
+                            staggerDelay={0.15}
+                        >
+                            {features.map((feature) => (
+                                <StaggerItem key={feature.title}>
+                                    <motion.div
+                                        className="flex flex-col items-start group"
+                                        whileHover={{ y: -4 }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                    >
+                                        <motion.div
+                                            className="rounded-lg bg-gradient-to-br from-red-50 to-red-100/50 p-3 ring-1 ring-red-100 group-hover:ring-primary/30 transition-all"
+                                            whileHover={{ scale: 1.1, rotate: 5 }}
+                                        >
+                                            <feature.icon className="h-6 w-6 text-primary" />
+                                        </motion.div>
+                                        <dt className="mt-4 font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                                            {feature.title}
+                                        </dt>
+                                        <dd className="mt-2 leading-7 text-gray-600">
+                                            {feature.description}
+                                        </dd>
+                                    </motion.div>
+                                </StaggerItem>
+                            ))}
+                        </StaggerContainer>
                     </div>
                 </ScrollReveal>
-            </div>
-            <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6 opacity-20" aria-hidden="true">
-                <div className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc]" style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }}></div>
             </div>
         </section>
     );
