@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${playfair.variable} ${inter.variable} antialiased font-sans bg-white text-zinc-900 flex flex-col min-h-screen`}
       >
         <Header />

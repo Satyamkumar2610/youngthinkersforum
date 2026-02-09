@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  /* Modern Sanskriti Core System */
+  --ytf-red: #B22222;
+  --ytf-white: #FFFFFF;
+  --ytf-ink: #1A1A1A;
+
   /* Semantic Brand Colors */
   --brand-red: #B22222;
   /* Geru: Signals, Buttons, Tilak */
@@ -678,4 +683,242 @@ html {
 
 .stagger-6 {
   animation-delay: 0.6s;
+}
+
+/* ============================================
+   MODERN SANSKRITI DESIGN SYSTEM
+   ============================================ */
+
+/* The Tilak Header (Creative Identity) */
+h2.pillar-heading,
+.pillar-heading {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: 2.5rem;
+  border-left: 5px solid var(--ytf-red);
+  padding-left: 20px;
+  margin: 40px 0;
+  font-weight: 700;
+  color: var(--ytf-ink);
+}
+
+/* Instant Interaction - No Easing (Snappy feel) */
+.nav-item-instant,
+.event-card-instant {
+  transition: none !important;
+}
+
+.nav-item-instant:hover,
+.event-card-instant:hover {
+  background-color: var(--ytf-red);
+  color: var(--ytf-white);
+  cursor: pointer;
+}
+
+/* Event Card (Ticket-style) */
+.event-card {
+  background: var(--ytf-white);
+  border: 1px solid rgba(178, 34, 34, 0.1);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--ytf-red);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Warli Border (Thin decorative) */
+.warli-border {
+  border-left: 0.5px solid rgba(178, 34, 34, 0.3);
+  position: relative;
+}
+
+.warli-border::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 10%;
+  bottom: 10%;
+  width: 3px;
+  background: repeating-linear-gradient(to bottom,
+      var(--ytf-red) 0px,
+      var(--ytf-red) 4px,
+      transparent 4px,
+      transparent 8px);
+  opacity: 0.4;
+}
+
+/* Aipan-inspired Horizontal Line (dots and waves) */
+.aipan-border {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(178, 34, 34, 0.3) 10%,
+      rgba(178, 34, 34, 0.3) 90%,
+      transparent 100%);
+}
+
+.aipan-border::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background-image: radial-gradient(circle at 50% 50%,
+      var(--ytf-red) 2px,
+      transparent 2px);
+  background-size: 20px 7px;
+  background-position: center;
+  opacity: 0.5;
+}
+
+/* Split Minimalist Hero Background */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: var(--ytf-white);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Background Year Element */
+.bg-year {
+  position: absolute;
+  font-size: clamp(15rem, 25vw, 30rem);
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.03);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Three Pillars Grid */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillar-card {
+  background: var(--ytf-white);
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(178, 34, 34, 0.08);
+  cursor: pointer;
+  position: relative;
+}
+
+.pillar-card.instant-hover {
+  transition: none !important;
+}
+
+.pillar-card.instant-hover:hover {
+  background: var(--ytf-red);
+  color: var(--ytf-white);
+}
+
+.pillar-card.instant-hover:hover * {
+  color: var(--ytf-white);
+}
+
+/* Peepal Leaf Icon (SVG styling) */
+.peepal-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--ytf-red);
+}
+
+/* Directory Overlay (Full-screen navigation) */
+.directory-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--ytf-white);
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  padding: 8rem 6rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.directory-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.directory-column h3 {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ytf-red);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.directory-column a {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--ytf-ink);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: none;
+}
+
+.directory-column a:hover {
+  color: var(--ytf-red);
+}
+
+/* Social Icons (Red Monochrome) */
+.social-icon-red {
+  color: var(--ytf-red);
+  transition: none;
+}
+
+.social-icon-red:hover {
+  color: var(--ytf-ink);
+}
+
+/* Image with Red Border Frame */
+.image-frame-red {
+  border: 2px solid var(--ytf-red);
+  padding: 4px;
+}
+
+.image-frame-red img {
+  display: block;
+  width: 100%;
+  filter: grayscale(100%) contrast(1.1);
 }
