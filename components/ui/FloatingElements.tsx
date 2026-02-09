@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 interface FloatingElement {
     id: number;
@@ -27,8 +27,10 @@ export function FloatingElements({
     minSize = 4,
     maxSize = 12,
 }: FloatingElementsProps) {
-    const elements = useMemo<FloatingElement[]>(() => {
-        return Array.from({ length: count }, (_, i) => ({
+    const [elements, setElements] = useState<FloatingElement[]>([]);
+
+    useEffect(() => {
+        const newElements = Array.from({ length: count }, (_, i) => ({
             id: i,
             x: Math.random() * 100,
             y: Math.random() * 100,
@@ -36,6 +38,7 @@ export function FloatingElements({
             duration: Math.random() * 10 + 10,
             delay: Math.random() * 5,
         }));
+        setElements(newElements);
     }, [count, minSize, maxSize]);
 
     return (
@@ -77,8 +80,10 @@ export function FloatingDiyas({
     count?: number;
     className?: string;
 }) {
-    const elements = useMemo(() => {
-        return Array.from({ length: count }, (_, i) => ({
+    const [elements, setElements] = useState<any[]>([]);
+
+    useEffect(() => {
+        const newElements = Array.from({ length: count }, (_, i) => ({
             id: i,
             x: Math.random() * 100,
             y: Math.random() * 100,
@@ -86,6 +91,7 @@ export function FloatingDiyas({
             delay: Math.random() * 3,
             scale: Math.random() * 0.5 + 0.5,
         }));
+        setElements(newElements);
     }, [count]);
 
     return (

@@ -5,6 +5,7 @@ import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
 import { AnimatedText } from "@/components/ui/AnimatedText";
+import { PulsingGlow } from "@/components/ui/IndianAnimations";
 
 export default function EventsPage() {
     return (
@@ -83,18 +84,28 @@ export default function EventsPage() {
                                             {event.description}
                                         </p>
                                         <motion.div
-                                            className="mt-6 inline-flex items-center gap-2"
+                                            className="mt-6"
                                             whileHover={{ x: 4 }}
                                         >
-                                            <span className="text-sm font-semibold leading-6 text-primary group-hover:text-red-800 transition-colors flex items-center gap-1">
-                                                Register Now
-                                                <motion.span
-                                                    animate={{ x: [0, 4, 0] }}
-                                                    transition={{ duration: 1.5, repeat: Infinity }}
-                                                >
-                                                    <ArrowRight className="w-4 h-4" />
-                                                </motion.span>
-                                            </span>
+                                            <PulsingGlow color="rgba(178, 34, 34, 0.2)">
+                                                <button className="group relative overflow-hidden rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-md flex items-center gap-2 hover:bg-red-800 transition-colors">
+                                                    <span className="relative z-10 flex items-center gap-2">
+                                                        Register Now
+                                                        <motion.span
+                                                            animate={{ x: [0, 4, 0] }}
+                                                            transition={{ duration: 1.5, repeat: Infinity }}
+                                                        >
+                                                            <ArrowRight className="w-4 h-4" />
+                                                        </motion.span>
+                                                    </span>
+                                                    {/* Shimmer effect */}
+                                                    <motion.div
+                                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+                                                        animate={{ translateX: ["−100%", "200%"] }}
+                                                        transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+                                                    />
+                                                </button>
+                                            </PulsingGlow>
                                         </motion.div>
                                     </div>
                                 </motion.div>
