@@ -1,184 +1,102 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 
-// Social icons as simple SVG components (red monochrome)
-const YouTube = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-);
-
-const LinkedIn = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-);
-
-const Instagram = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-    </svg>
-);
-
-const XTwitter = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-    </svg>
-);
-
-const Facebook = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-    </svg>
-);
-
-const socialLinks = [
-    { name: "YouTube", href: "#", icon: YouTube },
-    { name: "LinkedIn", href: "#", icon: LinkedIn },
-    { name: "Instagram", href: "#", icon: Instagram },
-    { name: "X", href: "#", icon: XTwitter },
-    { name: "Facebook", href: "#", icon: Facebook },
-];
-
-const navigation = {
-    resources: [
-        { name: "Research Papers", href: "/research" },
-        { name: "Event Archives", href: "/events/archives" },
-        { name: "Policy Briefs", href: "/research/policy" },
-    ],
-    company: [
-        { name: "About Us", href: "/about" },
-        { name: "Our Team", href: "/about#team" },
+const footerLinks = {
+    organization: [
+        { name: "Who We Are", href: "/about" },
+        { name: "Our History", href: "/about#history" },
+        { name: "Vision & Mission", href: "/about#vision" },
+        { name: "Team", href: "/team" },
         { name: "Contact", href: "/contact" },
+    ],
+    verticals: [
+        { name: "Events & Conclaves", href: "/events" },
+        { name: "Policy Research", href: "/research" },
+        { name: "Student Fellowship", href: "/fellowship" },
+        { name: "Publications", href: "/media" },
     ],
     legal: [
         { name: "Privacy Policy", href: "/privacy" },
         { name: "Terms of Service", href: "/terms" },
-    ],
+    ]
 };
 
 export function Footer() {
     return (
-        <footer className="bg-white">
-            {/* Aipan-inspired border */}
-            <div className="aipan-border" />
-
-            <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-                    {/* Brand Section */}
-                    <div className="lg:col-span-4">
-                        <Link href="/" className="inline-flex items-center gap-3">
-                            {/* Artistic Logo */}
-                            <div className="relative">
-                                <div className="w-10 h-10 bg-[#B22222] flex items-center justify-center">
-                                    <span className="font-serif text-lg font-bold text-white">Y</span>
-                                </div>
-                                <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 border-r-2 border-b-2 border-[#D4AF37]" />
+        <footer className="bg-[#FAFAFA] border-t border-gray-200 pt-16 pb-8">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                    {/* Brand Column */}
+                    <div className="col-span-1 md:col-span-1">
+                        <Link href="/" className="flex items-center gap-2 mb-6">
+                            <div className="w-8 h-8 bg-[#D32F2F] rounded-md flex items-center justify-center text-white text-xs font-bold shadow-sm">
+                                YTF
                             </div>
-                            <div>
-                                <span className="font-serif text-lg font-semibold text-[#1A1A1A]">
-                                    Young Thinkers&apos;
-                                </span>
-                                <span className="block text-[9px] font-medium text-[#B22222] tracking-[0.25em] uppercase">
-                                    Forum
-                                </span>
-                            </div>
+                            <span className="font-heading font-bold text-[#1F2937]">Young Thinkers Forum</span>
                         </Link>
-
-                        <p className="mt-6 text-sm text-gray-600 leading-relaxed max-w-sm">
-                            Cultivating the next generation of intellectual leaders.
-                            Rooted in heritage, open to the world.
+                        <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                            Cultivating a generation of thinkers rooted in truth,
+                            open to the world, and dedicated to service.
                         </p>
-
-                        {/* Social Links - Red Monochrome */}
-                        <div className="mt-8 flex gap-4">
-                            {socialLinks.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.href}
-                                    className="social-icon-red"
-                                >
-                                    <span className="sr-only">{item.name}</span>
-                                    <item.icon className="h-5 w-5" />
-                                </a>
-                            ))}
+                        <div className="flex gap-3">
+                            <a href="#" className="p-2 rounded-full bg-white border border-gray-100 text-gray-400 hover:border-[#D32F2F] hover:text-[#D32F2F] transition-all"><Instagram className="w-4 h-4" /></a>
+                            <a href="#" className="p-2 rounded-full bg-white border border-gray-100 text-gray-400 hover:border-[#0077B5] hover:text-[#0077B5] transition-all"><Linkedin className="w-4 h-4" /></a>
+                            <a href="#" className="p-2 rounded-full bg-white border border-gray-100 text-gray-400 hover:border-[#1DA1F2] hover:text-[#1DA1F2] transition-all"><Twitter className="w-4 h-4" /></a>
                         </div>
                     </div>
 
-                    {/* Links Grid */}
-                    <div className="lg:col-span-8">
-                        <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
-                            <div>
-                                <h3 className="text-xs font-semibold text-[#B22222] uppercase tracking-wider">
-                                    Resources
-                                </h3>
-                                <ul className="mt-4 space-y-3">
-                                    {navigation.resources.map((item) => (
-                                        <li key={item.name}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-sm text-gray-600 hover:text-[#B22222] transition-none"
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-xs font-semibold text-[#B22222] uppercase tracking-wider">
-                                    Organization
-                                </h3>
-                                <ul className="mt-4 space-y-3">
-                                    {navigation.company.map((item) => (
-                                        <li key={item.name}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-sm text-gray-600 hover:text-[#B22222] transition-none"
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-xs font-semibold text-[#B22222] uppercase tracking-wider">
-                                    Legal
-                                </h3>
-                                <ul className="mt-4 space-y-3">
-                                    {navigation.legal.map((item) => (
-                                        <li key={item.name}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-sm text-gray-600 hover:text-[#B22222] transition-none"
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
+                    {/* Links Columns */}
+                    <div>
+                        <h3 className="font-heading font-semibold text-[#1F2937] mb-6 text-sm uppercase tracking-wider">Organization</h3>
+                        <ul className="space-y-3">
+                            {footerLinks.organization.map((link) => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-sm text-gray-500 hover:text-[#D32F2F] transition-colors hover:underline hover:decoration-[#D32F2F] underline-offset-4">
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="font-heading font-semibold text-[#1F2937] mb-6 text-sm uppercase tracking-wider">Verticals</h3>
+                        <ul className="space-y-3">
+                            {footerLinks.verticals.map((link) => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-sm text-gray-500 hover:text-[#D32F2F] transition-colors hover:underline hover:decoration-[#D32F2F] underline-offset-4">
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Newsletter / Legal (Placeholder) */}
+                    <div>
+                        <h3 className="font-heading font-semibold text-[#1F2937] mb-6 text-sm uppercase tracking-wider">Legal</h3>
+                        <ul className="space-y-3">
+                            {footerLinks.legal.map((link) => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-sm text-gray-500 hover:text-[#D32F2F] transition-colors hover:underline hover:decoration-[#D32F2F] underline-offset-4">
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
 
-                {/* Bottom Bar - Signature Style */}
-                <div className="mt-16 pt-8 border-t border-gray-200">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-sm text-gray-500">
-                            Young Thinkers' Forum © Est. 2018 | Built for the next generation of thinkers.
-                        </p>
-                        <motion.p
-                            className="text-sm text-[#D4AF37] font-serif italic"
-                            animate={{ opacity: [0.7, 1, 0.7] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                        >
-                            सत्यमेव जयते — Truth Alone Triumphs
-                        </motion.p>
-                    </div>
+                {/* Bottom Bar */}
+                <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-xs text-gray-400">
+                        © {new Date().getFullYear()} Young Thinkers Forum. All rights reserved.
+                    </p>
+                    <p className="text-xs font-bold text-[#D32F2F] tracking-widest uppercase flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#D32F2F]" /> Satyameva Jayate
+                    </p>
                 </div>
             </div>
         </footer>

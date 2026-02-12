@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -16,13 +16,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Young Thinkers Forum",
-  description: "A group of young intellectuals and thought leaders.",
+  description: "A premier platform for rigorous debate, critical analysis, and nurturing young Indian thought leaders.",
 };
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-
-// ... imports
 
 export default function RootLayout({
   children,
@@ -33,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={`${playfair.variable} ${inter.variable} antialiased font-sans bg-white text-zinc-900 flex flex-col min-h-screen`}
+        className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-white text-zinc-900 flex flex-col min-h-screen selection:bg-[#D32F2F]/20 selection:text-[#D32F2F]`}
       >
         <Header />
         <main className="flex-grow">

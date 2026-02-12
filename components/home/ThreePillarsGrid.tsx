@@ -1,105 +1,86 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Home, Calendar, Lightbulb } from "lucide-react";
-
-// Peepal Leaf SVG Icon
-const PeepalLeaf = ({ className }: { className?: string }) => (
-    <svg
-        viewBox="0 0 64 64"
-        fill="currentColor"
-        className={className}
-        aria-hidden="true"
-    >
-        <path d="M32 4C24 12 16 24 16 36c0 12 8 20 16 24 8-4 16-12 16-24 0-12-8-24-16-32zm0 8c4 6 8 14 8 24 0 8-4 14-8 18-4-4-8-10-8-18 0-10 4-18 8-24z" />
-        <path d="M32 56V20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.5" />
-    </svg>
-);
-
-const pillars = [
-    {
-        id: "home",
-        title: "Our Home",
-        description: "The foundation of India's intellectual renaissance",
-        icon: PeepalLeaf,
-        href: "/",
-        isInstant: false,
-    },
-    {
-        id: "events",
-        title: "Upcoming Events",
-        description: "Join our conclaves, debates, and symposiums",
-        icon: Calendar,
-        href: "/events",
-        isInstant: true, // Ticket-style instant hover
-    },
-    {
-        id: "what-we-do",
-        title: "What We Do",
-        description: "Cultivating discourse, shaping narratives",
-        icon: Lightbulb,
-        href: "/about",
-        isInstant: false,
-        hasWarli: true, // Vertical Warli border
-    },
-];
+import { Eye, Target, Heart } from "lucide-react";
 
 export function ThreePillarsGrid() {
     return (
-        <section className="py-24 px-6 lg:px-8 bg-[#FFFAF0]">
-            <div className="mx-auto max-w-6xl">
-                {/* Section Header with Tilak */}
-                <h2 className="pillar-heading">Explore the Forum</h2>
+        <section className="py-24 bg-white relative overflow-hidden">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
 
-                {/* Three Pillars Grid */}
-                <div className="pillars-grid mt-12">
-                    {pillars.map((pillar, index) => (
+                <div className="text-center mb-16">
+                    <span className="tag-academic mb-4">Our Core Values</span>
+                    <h2 className="text-4xl font-bold text-[#1F2937]">
+                        Vision & <span className="text-[#D32F2F]">Mission</span>
+                    </h2>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    {/* Left: Art */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="flex justify-center"
+                    >
+                        <div className="relative w-full max-w-md aspect-square">
+                            <div className="absolute inset-0 bg-[#FFEBEE] rounded-full blur-3xl opacity-50 transform scale-90" />
+                            <Image
+                                src="/images/vision_mission.png"
+                                alt="Vision and Mission Diya"
+                                width={500}
+                                height={500}
+                                className="object-contain relative z-10"
+                            />
+                        </div>
+                    </motion.div>
+
+                    {/* Right: Vision Cards */}
+                    <div className="space-y-8">
                         <motion.div
-                            key={pillar.id}
-                            initial={{ opacity: 0, y: 30 }}
+                            className="bg-[#FAFAFA] p-8 rounded-2xl border border-gray-100 hover:border-[#D32F2F]/30 transition-colors shadow-sm"
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ delay: 0.2 }}
                         >
-                            <Link href={pillar.href}>
-                                <div
-                                    className={`
-                                        pillar-card group
-                                        ${pillar.isInstant ? "instant-hover" : "hover:shadow-lg hover:-translate-y-1 transition-all duration-300"}
-                                        ${pillar.hasWarli ? "warli-border" : ""}
-                                    `}
-                                >
-                                    {/* Icon */}
-                                    <div className="mb-6">
-                                        {pillar.id === "home" ? (
-                                            <pillar.icon className="w-12 h-12 mx-auto text-[#B22222] group-hover:scale-110 transition-transform" />
-                                        ) : (
-                                            <pillar.icon className="w-12 h-12 mx-auto text-[#B22222]" strokeWidth={1.5} />
-                                        )}
-                                    </div>
-
-                                    {/* Title */}
-                                    <h3 className="font-serif text-xl font-semibold text-[#1A1A1A] mb-3">
-                                        {pillar.title}
-                                    </h3>
-
-                                    {/* Description */}
-                                    <p className="text-gray-600 text-sm leading-relaxed">
-                                        {pillar.description}
-                                    </p>
-
-                                    {/* Ticket-style notch for Events */}
-                                    {pillar.isInstant && (
-                                        <>
-                                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-6 bg-[#FFFAF0] rounded-r-full" />
-                                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-6 bg-[#FFFAF0] rounded-l-full" />
-                                        </>
-                                    )}
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 bg-white rounded-lg shadow-sm text-[#D32F2F]">
+                                    <Eye className="w-6 h-6" />
                                 </div>
-                            </Link>
+                                <div>
+                                    <h3 className="text-xl font-bold text-[#1F2937] mb-2">Our Vision</h3>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        To cultivate a generation of young thinkers who are rooted in their cultural identity
+                                        yet universally competent to address global challenges.
+                                    </p>
+                                </div>
+                            </div>
                         </motion.div>
-                    ))}
+
+                        <motion.div
+                            className="bg-[#FAFAFA] p-8 rounded-2xl border border-gray-100 hover:border-[#D32F2F]/30 transition-colors shadow-sm"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 bg-white rounded-lg shadow-sm text-[#D32F2F]">
+                                    <Target className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-[#1F2937] mb-2">Our Mission</h3>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        To provide rigorous platforms for debate, research, and policy analysis,
+                                        bridging the gap between academic theory and social reality.
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

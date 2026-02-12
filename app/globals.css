@@ -1,51 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  /* Modern Sanskriti Core System */
-  --ytf-red: #B22222;
-  --ytf-white: #FFFFFF;
-  --ytf-ink: #1A1A1A;
-
-  /* Semantic Brand Colors */
-  --brand-red: #B22222;
-  /* Geru: Signals, Buttons, Tilak */
-  --brand-gold: #D4AF37;
-  /* Royal Gold: Accents, Halos */
-  --bg-white: #FFFAF0;
-  /* Warm White: Main Canvas */
-  --bg-paper: #FFFFFF;
-  /* Pure White: Cards, Elevated Surfaces */
-  --text-charcoal: #111111;
+  /* ============================================
+     MODERN ACADEMIC PALETTE (Bodha Research Style)
+     ============================================ */
+  --academic-red: #D32F2F;
+  /* Deep Crimson / Official Red */
+  --academic-red-light: #FFEBEE;
+  /* Light Red Background */
+  --academic-white: #FFFFFF;
+  --academic-offwhite: #FAFAFA;
+  --academic-charcoal: #1F2937;
   /* Primary Text */
-  --text-muted: #737373;
+  --academic-gray: #6B7280;
   /* Secondary Text */
+  --academic-border: #E5E7EB;
 
-  /* Tailwind Mappings (Backward Compatibility) */
-  --primary: var(--brand-red);
-  --primary-foreground: #ffffff;
-  --accent: var(--brand-gold);
-  --background: var(--bg-white);
-  --foreground: var(--text-charcoal);
-  --muted: #f3e5e5;
-  --muted-foreground: var(--text-muted);
-  --border: #e6dbdb;
-  --input: #e6dbdb;
+  /* Semantic Mappings */
+  --brand-primary: var(--academic-red);
+  --brand-bg: var(--academic-white);
+  --brand-surface: var(--academic-offwhite);
+  --brand-text: var(--academic-charcoal);
+  --brand-text-muted: var(--academic-gray);
+
+  /* Tailwind Mappings */
+  --primary: var(--academic-red);
+  --primary-foreground: var(--academic-white);
+  --background: var(--academic-white);
+  --foreground: var(--academic-charcoal);
+  --muted: var(--academic-offwhite);
+  --border: var(--academic-border);
 
   /* Fonts */
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-heading: var(--font-outfit);
 
-  /* Industry-Grade Shadows */
-  --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.02), 0 2px 4px -2px rgb(0 0 0 / 0.02);
-  --shadow-floating: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.3);
-  --shadow-red-glow: 0 0 20px rgba(178, 34, 34, 0.25);
-
-  /* Animation Durations */
-  --animate-float: float 6s ease-in-out infinite;
-  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Shadows - Subtle & Clean */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 /* ============================================
@@ -53,9 +46,10 @@
    ============================================ */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter);
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: var(--font-inter), sans-serif;
+  line-height: 1.6;
 }
 
 h1,
@@ -64,190 +58,124 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-playfair);
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection styling with cultural touch */
-::selection {
-  background: rgba(178, 34, 34, 0.2);
-  color: var(--text-charcoal);
+  font-family: var(--font-outfit), sans-serif;
+  color: var(--brand-text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 /* ============================================
-   CULTURAL DESIGN ELEMENTS
+   UTILITY CLASSES (Academic Style)
    ============================================ */
 
-.tilak-heading {
+/* Red underline animation for links */
+.hover-underline-red {
   position: relative;
-  padding-left: 1.25rem;
+  text-decoration: none;
 }
 
-.tilak-heading::before {
-  content: "";
+.hover-underline-red::after {
+  content: '';
   position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 100%;
-  background-color: var(--brand-red);
+  background-color: var(--academic-red);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-red:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* "Highlighter" hover effect */
+.hover-highlight {
+  background: linear-gradient(120deg, transparent 0%, transparent 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+.hover-highlight:hover {
+  background-image: linear-gradient(120deg, var(--academic-red-light) 0%, var(--academic-red-light) 100%);
+  background-size: 100% 88%;
+}
+
+/* Minimalist Button */
+.btn-academic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 500;
   border-radius: 9999px;
+  /* Pill shape */
+  transition: all 0.2s ease;
 }
 
-/* Animated Tilak */
-.tilak-heading-animated::before {
-  animation: tilak-pulse 2s ease-in-out infinite;
+.btn-academic-primary {
+  background-color: var(--academic-red);
+  color: white;
 }
 
-@keyframes tilak-pulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 5px rgba(178, 34, 34, 0.3);
-    opacity: 1;
-  }
-
-  50% {
-    box-shadow: 0 0 15px rgba(178, 34, 34, 0.6);
-    opacity: 0.8;
-  }
+.btn-academic-primary:hover {
+  background-color: #B71C1C;
+  /* Darker red */
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
-/* Indian Minimalism: Hairline Border */
-.hairline-border {
-  border-bottom: 0.5px solid rgba(178, 34, 34, 0.2);
-  position: relative;
+.btn-academic-outline {
+  background-color: transparent;
+  border: 1px solid var(--academic-border);
+  color: var(--academic-charcoal);
 }
 
-.hairline-border::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, -50%);
-  width: 4px;
-  height: 4px;
-  background-color: var(--brand-red);
-  border-radius: 50%;
+.btn-academic-outline:hover {
+  border-color: var(--academic-red);
+  color: var(--academic-red);
+  background-color: var(--academic-red-light);
 }
 
-/* ============================================
-   CULTURAL PATTERNS
-   ============================================ */
-
-/* Minimalist Warli/Aipan Pattern (CSS implementation) */
-.pattern-warli {
-  background-image:
-    linear-gradient(30deg, #B22222 12%, transparent 12.5%, transparent 87%, #B22222 87.5%, #B22222),
-    linear-gradient(150deg, #B22222 12%, transparent 12.5%, transparent 87%, #B22222 87.5%, #B22222),
-    linear-gradient(30deg, #B22222 12%, transparent 12.5%, transparent 87%, #B22222 87.5%, #B22222),
-    linear-gradient(150deg, #B22222 12%, transparent 12.5%, transparent 87%, #B22222 87.5%, #B22222),
-    linear-gradient(60deg, #B2222277 25%, transparent 25.5%, transparent 75%, #B2222277 75%, #B2222277),
-    linear-gradient(60deg, #B2222277 25%, transparent 25.5%, transparent 75%, #B2222277 75%, #B2222277);
-  background-size: 20px 35px;
-  background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
-  opacity: 0.08;
+/* Tag/Badge Style */
+.tag-academic {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--academic-offwhite);
+  color: var(--academic-gray);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
 }
 
-.bg-jaali {
-  background-image: radial-gradient(#B22222 1.5px, transparent 1.5px), radial-gradient(#B22222 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
-  background-position: 0 0, 12px 12px;
-  opacity: 0.1;
-}
-
-/* Rangoli-inspired dot pattern */
-.pattern-rangoli {
-  background-image:
-    radial-gradient(circle at 50% 50%, var(--brand-red) 1px, transparent 1px),
-    radial-gradient(circle at 0% 50%, var(--brand-red) 1px, transparent 1px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  opacity: 0.08;
+.tag-academic:hover {
+  background-color: var(--academic-red-light);
+  color: var(--academic-red);
 }
 
 /* ============================================
-   GLASSMORPHISM UTILITIES
+   GRID PATTERN (Subtle Background)
    ============================================ */
-
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: var(--shadow-card);
-}
-
-.glass-header {
-  background: rgba(255, 250, 240, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(178, 34, 34, 0.05);
-}
-
-.glass-dark {
-  background: rgba(178, 34, 34, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
 }
 
 /* ============================================
-   ANIMATION KEYFRAMES
+   ANIMATIONS
    ============================================ */
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 5px rgba(178, 34, 34, 0.4);
-  }
-
-  50% {
-    box-shadow: 0 0 20px rgba(178, 34, 34, 0.6), 0 0 40px rgba(178, 34, 34, 0.3);
-  }
-}
-
-@keyframes gold-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
-  }
-
-  50% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
-  }
-}
-
-@keyframes fade-up {
+@keyframes fade-in-up {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -259,666 +187,6 @@ html {
   }
 }
 
-@keyframes fade-down {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin-slow-reverse {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes bounce-subtle {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes underline-expand {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes diya-flicker {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  25% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  75% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes wave {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-
-  50% {
-    transform: translateX(-25%) translateY(2px);
-  }
-
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-/* ============================================
-   ANIMATION UTILITY CLASSES
-   ============================================ */
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.4) 50%,
-      transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-gold-glow {
-  animation: gold-glow 2s ease-in-out infinite;
-}
-
-.animate-fade-up {
-  animation: fade-up 0.6s ease-out forwards;
-}
-
-.animate-fade-down {
-  animation: fade-down 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.5s ease-out forwards;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.animate-spin-slow-reverse {
-  animation: spin-slow-reverse 25s linear infinite;
-}
-
-.animate-bounce-subtle {
-  animation: bounce-subtle 2s ease-in-out infinite;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.6s ease-out forwards;
-}
-
-.animate-diya-flicker {
-  animation: diya-flicker 3s ease-in-out infinite;
-}
-
-/* ============================================
-   INTERACTIVE EFFECTS
-   ============================================ */
-
-/* Magnetic hover - use with JS for full effect */
-.magnetic-hover {
-  transition: transform 0.3s var(--transition-smooth);
-}
-
-/* Link underline animation */
-.link-underline {
-  position: relative;
-  text-decoration: none;
-}
-
-.link-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--brand-red);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s var(--transition-smooth);
-}
-
-.link-underline:hover::after {
-  transform: scaleX(1);
-}
-
-/* Glow card effect */
-.glow-card {
-  position: relative;
-  transition: all 0.5s var(--transition-smooth);
-}
-
-.glow-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, transparent 40%, rgba(178, 34, 34, 0.3) 50%, transparent 60%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.5s var(--transition-smooth);
-}
-
-.glow-card:hover::before {
-  opacity: 1;
-}
-
-.glow-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-floating), var(--shadow-red-glow);
-}
-
-/* 3D Card tilt - base styles (use with JS) */
-.tilt-card {
-  transform-style: preserve-3d;
-  transition: transform 0.3s var(--transition-smooth);
-}
-
-.tilt-card-content {
-  transform: translateZ(20px);
-}
-
-/* Shimmer button effect */
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shimmer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent);
-  transition: left 0.5s;
-}
-
-.btn-shimmer:hover::before {
-  left: 100%;
-}
-
-/* Red accent expansion on cards */
-.accent-expand {
-  position: relative;
-  overflow: hidden;
-}
-
-.accent-expand::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100%;
-  height: 3px;
-  background-color: var(--brand-red);
-  transform: translateX(-50%) scaleX(0);
-  transition: transform 0.5s var(--transition-smooth);
-  transform-origin: center;
-}
-
-.accent-expand:hover::after {
-  transform: translateX(-50%) scaleX(1);
-}
-
-/* ============================================
-   TEXT EFFECTS
-   ============================================ */
-
-/* Gradient text */
-.text-gradient {
-  background: linear-gradient(135deg, var(--brand-red), var(--brand-gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-animated {
-  background: linear-gradient(135deg, var(--brand-red), var(--brand-gold), var(--brand-red));
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
-}
-
-/* ============================================
-   SCROLL PROGRESS BAR
-   ============================================ */
-
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--brand-red), var(--brand-gold));
-  z-index: 9999;
-  transform-origin: left;
-}
-
-/* ============================================
-   FOCUS STATES
-   ============================================ */
-
-.focus-ring {
-  outline: none;
-}
-
-.focus-ring:focus-visible {
-  box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.3);
-}
-
-/* ============================================
-   LOADING STATES
-   ============================================ */
-
-.skeleton {
-  background: linear-gradient(90deg,
-      rgba(178, 34, 34, 0.05) 0%,
-      rgba(178, 34, 34, 0.1) 50%,
-      rgba(178, 34, 34, 0.05) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 4px;
-}
-
-/* ============================================
-   WAVE DIVIDER
-   ============================================ */
-
-.wave-divider {
-  position: relative;
-  overflow: hidden;
-}
-
-.wave-divider svg {
-  display: block;
-  width: 200%;
-  animation: wave 15s linear infinite;
-}
-
-/* ============================================
-   PERSPECTIVE UTILITIES
-   ============================================ */
-
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.perspective-2000 {
-  perspective: 2000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-/* ============================================
-   STAGGER ANIMATION DELAYS
-   ============================================ */
-
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-
-.stagger-6 {
-  animation-delay: 0.6s;
-}
-
-/* ============================================
-   MODERN SANSKRITI DESIGN SYSTEM
-   ============================================ */
-
-/* The Tilak Header (Creative Identity) */
-h2.pillar-heading,
-.pillar-heading {
-  font-family: var(--font-playfair), 'Playfair Display', serif;
-  font-size: 2.5rem;
-  border-left: 5px solid var(--ytf-red);
-  padding-left: 20px;
-  margin: 40px 0;
-  font-weight: 700;
-  color: var(--ytf-ink);
-}
-
-/* Instant Interaction - No Easing (Snappy feel) */
-.nav-item-instant,
-.event-card-instant {
-  transition: none !important;
-}
-
-.nav-item-instant:hover,
-.event-card-instant:hover {
-  background-color: var(--ytf-red);
-  color: var(--ytf-white);
-  cursor: pointer;
-}
-
-/* Event Card (Ticket-style) */
-.event-card {
-  background: var(--ytf-white);
-  border: 1px solid rgba(178, 34, 34, 0.1);
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.event-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--ytf-red);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-
-.event-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* Warli Border (Thin decorative) */
-.warli-border {
-  border-left: 0.5px solid rgba(178, 34, 34, 0.3);
-  position: relative;
-}
-
-.warli-border::before {
-  content: '';
-  position: absolute;
-  left: -2px;
-  top: 10%;
-  bottom: 10%;
-  width: 3px;
-  background: repeating-linear-gradient(to bottom,
-      var(--ytf-red) 0px,
-      var(--ytf-red) 4px,
-      transparent 4px,
-      transparent 8px);
-  opacity: 0.4;
-}
-
-/* Aipan-inspired Horizontal Line (dots and waves) */
-.aipan-border {
-  position: relative;
-  height: 1px;
-  background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(178, 34, 34, 0.3) 10%,
-      rgba(178, 34, 34, 0.3) 90%,
-      transparent 100%);
-}
-
-.aipan-border::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 0;
-  right: 0;
-  height: 7px;
-  background-image: radial-gradient(circle at 50% 50%,
-      var(--ytf-red) 2px,
-      transparent 2px);
-  background-size: 20px 7px;
-  background-position: center;
-  opacity: 0.5;
-}
-
-/* Split Minimalist Hero Background */
-.hero-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  background: var(--ytf-white);
-  position: relative;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .hero-split {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Background Year Element */
-.bg-year {
-  position: absolute;
-  font-size: clamp(15rem, 25vw, 30rem);
-  font-weight: 900;
-  color: rgba(0, 0, 0, 0.03);
-  letter-spacing: -0.05em;
-  line-height: 1;
-  z-index: 0;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* Three Pillars Grid */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-@media (max-width: 768px) {
-  .pillars-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.pillar-card {
-  background: var(--ytf-white);
-  padding: 3rem 2rem;
-  text-align: center;
-  border: 1px solid rgba(178, 34, 34, 0.08);
-  cursor: pointer;
-  position: relative;
-}
-
-.pillar-card.instant-hover {
-  transition: none !important;
-}
-
-.pillar-card.instant-hover:hover {
-  background: var(--ytf-red);
-  color: var(--ytf-white);
-}
-
-.pillar-card.instant-hover:hover * {
-  color: var(--ytf-white);
-}
-
-/* Peepal Leaf Icon (SVG styling) */
-.peepal-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--ytf-red);
-}
-
-/* Directory Overlay (Full-screen navigation) */
-.directory-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--ytf-white);
-  z-index: 100;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  padding: 8rem 6rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-.directory-overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.directory-column h3 {
-  font-family: var(--font-playfair), 'Playfair Display', serif;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ytf-red);
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.directory-column a {
-  display: block;
-  font-size: 1.5rem;
-  color: var(--ytf-ink);
-  text-decoration: none;
-  padding: 0.5rem 0;
-  transition: none;
-}
-
-.directory-column a:hover {
-  color: var(--ytf-red);
-}
-
-/* Social Icons (Red Monochrome) */
-.social-icon-red {
-  color: var(--ytf-red);
-  transition: none;
-}
-
-.social-icon-red:hover {
-  color: var(--ytf-ink);
-}
-
-/* Image with Red Border Frame */
-.image-frame-red {
-  border: 2px solid var(--ytf-red);
-  padding: 4px;
-}
-
-.image-frame-red img {
-  display: block;
-  width: 100%;
-  filter: grayscale(100%) contrast(1.1);
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
 }
