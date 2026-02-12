@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
     return (
-        <section className="relative min-h-[90vh] flex items-center bg-white overflow-hidden bg-grid-pattern">
+        <section className="relative min-h-[90vh] flex items-center bg-transparent overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full py-12 lg:py-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
@@ -72,26 +72,45 @@ export function Hero() {
                         </motion.div>
                     </div>
 
-                    {/* Right: Watercolor Art */}
+                    {/* Right: Heritage Modernism Art */}
                     <motion.div
                         className="relative h-full flex justify-center lg:justify-end order-1 lg:order-2"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
                     >
                         <div className="relative w-full max-w-lg aspect-square">
                             {/* Decorative background blob */}
                             <div className="absolute inset-0 bg-[#D32F2F]/5 rounded-full blur-3xl transform translate-x-4 translate-y-4 scale-90" />
 
                             <Image
-                                src="/images/hero_watercolor.png"
-                                alt="Young Thinker Visionary - Watercolor Art"
-                                width={600}
-                                height={600}
-                                className="object-contain relative z-10 drop-shadow-sm"
+                                src="/images/hero_heritage_modern.png"
+                                alt="Heritage Modernism - Young Thinkers Forum"
+                                width={800}
+                                height={800}
+                                className="object-contain relative z-10 drop-shadow-sm mix-blend-multiply"
                                 priority
                             />
                         </div>
+                    </motion.div>
+
+                    {/* Scroll Indicator */}
+                    <motion.div
+                        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.5, duration: 1 }}
+                    >
+                        <span className="text-[10px] uppercase tracking-widest text-gray-400">Scroll</span>
+                        <motion.div
+                            className="w-[1px] h-12 bg-gray-200 overflow-hidden relative"
+                        >
+                            <motion.div
+                                className="absolute top-0 left-0 w-full h-1/2 bg-[#D32F2F]"
+                                animate={{ top: ["-100%", "100%"] }}
+                                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                            />
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>

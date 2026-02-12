@@ -41,15 +41,15 @@ export function EventGrid() {
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                         >
                             <Link href="/events" className="group block h-full">
-                                <article className="bg-[#FAFAFA] border border-gray-100 rounded-xl overflow-hidden h-full flex flex-col hover:shadow-lg hover:border-[#D32F2F]/30 transition-all duration-300">
-                                    <div className="h-48 bg-gray-200 relative overflow-hidden">
+                                <article className="bg-[#FAFAFA] border border-gray-100 rounded-xl overflow-hidden h-full flex flex-col hover:shadow-xl hover:border-[#D32F2F]/30 hover:-translate-y-1 transition-all duration-300">
+                                    <div className="h-48 bg-gray-200 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
                                         <div className="absolute top-4 left-4 z-10">
-                                            <span className="bg-white/90 backdrop-blur text-[#D32F2F] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                            <span className="bg-white/90 backdrop-blur text-[#D32F2F] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                                                 {event.type}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="p-6 flex flex-col flex-grow">
+                                    <div className="p-6 flex flex-col flex-grow relative bg-[#FAFAFA] z-20">
                                         <div className="flex items-center gap-4 text-xs text-gray-500 mb-4 font-mono">
                                             <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {event.date}</span>
                                         </div>

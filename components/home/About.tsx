@@ -19,22 +19,29 @@ export function About() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     {/* Who We Are Context */}
-                    <div>
-                        <span className="tag-academic mb-4">Who We Are</span>
-                        <h2 className="text-4xl font-bold text-[#1F2937] mb-6">
-                            Custodians of <span className="text-[#D32F2F]">Heritage</span>,<br />
-                            Architects of Future.
-                        </h2>
-                        <div className="prose prose-lg text-gray-600">
-                            <p className="mb-4">
-                                Young Thinkers Forum is an ecosystem of intellectual rigor. We exist to challenge
-                                shallow narratives and build deep capacity for critical thinking among Indian youth.
-                            </p>
-                            <p>
-                                From small discussion circles to national conclaves, our journey has been
-                                defined by a relentless pursuit of truth and knowledge.
-                            </p>
-                        </div>
+                    <div className="relative">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <span className="tag-academic mb-4">Who We Are</span>
+                            <h2 className="text-4xl font-bold text-[#1F2937] mb-6">
+                                Custodians of <span className="text-[#D32F2F]">Heritage</span>,<br />
+                                Architects of Future.
+                            </h2>
+                            <div className="prose prose-lg text-gray-600">
+                                <p className="mb-4">
+                                    Young Thinkers Forum is an ecosystem of intellectual rigor. We exist to challenge
+                                    shallow narratives and build deep capacity for critical thinking among Indian youth.
+                                </p>
+                                <p>
+                                    From small discussion circles to national conclaves, our journey has been
+                                    defined by a relentless pursuit of truth and knowledge.
+                                </p>
+                            </div>
+                        </motion.div>
                     </div>
 
                     {/* Scroll Art */}

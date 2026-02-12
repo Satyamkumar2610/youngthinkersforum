@@ -11,7 +11,7 @@ export function JoinSection() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    {/* Left: Social Network Map Art */}
+                    {/* Left: Community Art */}
                     <motion.div
                         className="relative order-2 lg:order-1"
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -20,13 +20,13 @@ export function JoinSection() {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="relative w-full aspect-square max-w-lg mx-auto">
-                            <div className="absolute inset-0 bg-gray-50 rounded-full blur-3xl opacity-50" />
+                            <div className="absolute inset-0 bg-[#FFCDD2] rounded-full blur-3xl opacity-40" />
                             <Image
-                                src="/images/social_network.png"
-                                alt="Pan-India Network"
+                                src="/images/community_connect.png"
+                                alt="Join Young India Community"
                                 width={600}
                                 height={600}
-                                className="object-contain relative z-10 p-8"
+                                className="object-contain relative z-10 p-4 drop-shadow-md"
                             />
                         </div>
                     </motion.div>
@@ -72,8 +72,13 @@ export function JoinSection() {
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link
                                 href="/contact"
-                                className="btn-academic btn-academic-primary w-full sm:w-auto text-center"
+                                className="relative btn-academic btn-academic-primary w-full sm:w-auto text-center overflow-hidden"
                             >
+                                <motion.span
+                                    className="absolute inset-0 bg-white/20"
+                                    animate={{ x: ["-100%", "100%"] }}
+                                    transition={{ repeat: Infinity, duration: 1.5, repeatDelay: 3 }}
+                                />
                                 Start Application
                             </Link>
                             <Link

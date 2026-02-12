@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ArtisticBackground } from "@/components/ui/ArtisticBackground";
 
 export default function RootLayout({
   children,
@@ -33,8 +34,9 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-white text-zinc-900 flex flex-col min-h-screen selection:bg-[#D32F2F]/20 selection:text-[#D32F2F]`}
       >
+        <ArtisticBackground />
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow relative z-10">
           {children}
         </main>
         <Footer />
