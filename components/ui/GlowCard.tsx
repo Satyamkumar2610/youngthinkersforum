@@ -69,7 +69,7 @@ export function GlowCard({
             }}
             transition={{ duration: 0.3 }}
             className={`
-                relative overflow-hidden rounded-xl bg-white border border-gray-100/50
+                group relative overflow-hidden rounded-xl bg-white/70 backdrop-blur border border-border
                 transition-all duration-500 cursor-pointer
                 ${className}
             `}

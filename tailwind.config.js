@@ -8,21 +8,20 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Semantic Brand Colors
-                "brand-red": "var(--brand-red)",
-                "brand-gold": "var(--brand-gold)",
-                "bg-white": "var(--bg-white)",
-                "bg-paper": "var(--bg-paper)",
-                "text-charcoal": "var(--text-charcoal)",
+                // Semantic (CSS-var driven)
+                "brand-red": "var(--primary)",
+                "brand-gold": "var(--accent)",
+                paper: "var(--background)",
+                ink: "var(--foreground)",
 
-                // Functional Mappings
+                // Functional mappings
                 primary: {
-                    DEFAULT: "var(--brand-red)",
+                    DEFAULT: "var(--primary)",
                     foreground: "var(--primary-foreground)",
                 },
-                background: "var(--bg-white)",
-                foreground: "var(--text-charcoal)",
-                accent: "var(--brand-gold)",
+                background: "var(--background)",
+                foreground: "var(--foreground)",
+                accent: "var(--accent)",
                 muted: {
                     DEFAULT: "var(--muted)",
                     foreground: "var(--muted-foreground)",

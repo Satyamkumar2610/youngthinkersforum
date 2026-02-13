@@ -1,7 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useId, useMemo } from "react";
+
+function hashString(input: string) {
+    let hash = 2166136261;
+    for (let i = 0; i < input.length; i++) {
+        hash ^= input.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+}
+
+function makeRng(seed: number) {
+    let state = seed || 1;
+    return () => {
+        state ^= state << 13;
+        state ^= state >>> 17;
+        state ^= state << 5;
+        return (state >>> 0) / 4294967296;
+    };
+}
 
 interface FloatingElement {
     id: number;
@@ -27,19 +46,18 @@ export function FloatingElements({
     minSize = 4,
     maxSize = 12,
 }: FloatingElementsProps) {
-    const [elements, setElements] = useState<FloatingElement[]>([]);
-
-    useEffect(() => {
-        const newElements = Array.from({ length: count }, (_, i) => ({
+    const id = useId();
+    const elements = useMemo<FloatingElement[]>(() => {
+        const rand = makeRng(hashString(`${id}|${count}|${minSize}|${maxSize}`));
+        return Array.from({ length: count }, (_, i) => ({
             id: i,
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            size: Math.random() * (maxSize - minSize) + minSize,
-            duration: Math.random() * 10 + 10,
-            delay: Math.random() * 5,
+            x: rand() * 100,
+            y: rand() * 100,
+            size: rand() * (maxSize - minSize) + minSize,
+            duration: rand() * 10 + 10,
+            delay: rand() * 5,
         }));
-        setElements(newElements);
-    }, [count, minSize, maxSize]);
+    }, [count, id, maxSize, minSize]);
 
     return (
         <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
@@ -73,6 +91,15 @@ export function FloatingElements({
 }
 
 // Cultural shapes variant
+interface FloatingDiya {
+    id: number;
+    x: number;
+    y: number;
+    duration: number;
+    delay: number;
+    scale: number;
+}
+
 export function FloatingDiyas({
     count = 8,
     className = "",
@@ -80,19 +107,18 @@ export function FloatingDiyas({
     count?: number;
     className?: string;
 }) {
-    const [elements, setElements] = useState<any[]>([]);
-
-    useEffect(() => {
-        const newElements = Array.from({ length: count }, (_, i) => ({
+    const id = useId();
+    const elements = useMemo<FloatingDiya[]>(() => {
+        const rand = makeRng(hashString(`${id}|diyas|${count}`));
+        return Array.from({ length: count }, (_, i) => ({
             id: i,
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            duration: Math.random() * 8 + 8,
-            delay: Math.random() * 3,
-            scale: Math.random() * 0.5 + 0.5,
+            x: rand() * 100,
+            y: rand() * 100,
+            duration: rand() * 8 + 8,
+            delay: rand() * 3,
+            scale: rand() * 0.5 + 0.5,
         }));
-        setElements(newElements);
-    }, [count]);
+    }, [count, id]);
 
     return (
         <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>

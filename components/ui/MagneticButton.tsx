@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, MouseEvent } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import type { MouseEvent } from "react";
 
 interface MagneticButtonProps {
     children: React.ReactNode;
@@ -20,8 +20,6 @@ export function MagneticButton({
     href,
     variant = "primary",
 }: MagneticButtonProps) {
-    const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
-
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -29,10 +27,8 @@ export function MagneticButton({
     const springX = useSpring(x, springConfig);
     const springY = useSpring(y, springConfig);
 
-    const handleMouseMove = (e: MouseEvent) => {
-        if (!ref.current) return;
-
-        const rect = ref.current.getBoundingClientRect();
+    const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
@@ -56,12 +52,26 @@ export function MagneticButton({
         ghost: "text-primary hover:text-red-800 px-4 py-2",
     };
 
-    const Component = href ? motion.a : motion.button;
+    if (href) {
+        return (
+            <motion.a
+                href={href}
+                onClick={onClick}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{ x: springX, y: springY }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${baseStyles} ${variants[variant]} ${className} btn-shimmer`}
+            >
+                {children}
+            </motion.a>
+        );
+    }
 
     return (
-        <Component
-            ref={ref as any}
-            href={href}
+        <motion.button
+            type="button"
             onClick={onClick}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -71,6 +81,6 @@ export function MagneticButton({
             className={`${baseStyles} ${variants[variant]} ${className} btn-shimmer`}
         >
             {children}
-        </Component>
+        </motion.button>
     );
 }

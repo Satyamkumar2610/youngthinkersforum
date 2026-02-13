@@ -17,7 +17,7 @@ export default function AboutPage() {
                                     Cultivating Intellectual Leadership
                                 </h1>
                                 <p className="mt-6 text-xl leading-8 text-gray-700">
-                                    The Young Thinkers' Forum (YTF) is dedicated to fostering a new generation of Indian intellectuals who are rooted in their heritage while being globally competitive.
+                                    The Young Thinkers&apos; Forum (YTF) is dedicated to fostering a new generation of Indian intellectuals who are rooted in their heritage while being globally competitive.
                                 </p>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ export default function AboutPage() {
                             Our Leadership
                         </h2>
                         <p className="mt-4 text-lg leading-8 text-gray-600">
-                            Meet the minds guiding the forum's strategic direction.
+                            Meet the minds guiding the forum&apos;s strategic direction.
                         </p>
                     </div>
                     <ul role="list" className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">

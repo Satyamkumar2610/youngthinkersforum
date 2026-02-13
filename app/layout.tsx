@@ -1,18 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Young Thinkers Forum",
@@ -32,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={`${outfit.variable} ${inter.variable} antialiased font-sans bg-white text-zinc-900 flex flex-col min-h-screen selection:bg-[#D32F2F]/20 selection:text-[#D32F2F]`}
+        className="antialiased font-sans bg-background text-foreground flex flex-col min-h-screen selection:bg-primary/15 selection:text-primary"
       >
         <ArtisticBackground />
         <Header />

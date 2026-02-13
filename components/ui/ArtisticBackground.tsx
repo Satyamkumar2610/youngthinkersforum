@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useId, useMemo } from "react";
 
 function LotusIcon({ className }: { className?: string }) {
     return (
@@ -40,31 +41,71 @@ function PaisleyIcon({ className }: { className?: string }) {
         </svg>
     );
 }
+function hashString(input: string) {
+    let hash = 2166136261;
+    for (let i = 0; i < input.length; i++) {
+        hash ^= input.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+}
 
-
-import { useEffect, useState } from "react";
+function makeRng(seed: number) {
+    let state = seed || 1;
+    return () => {
+        state ^= state << 13;
+        state ^= state >>> 17;
+        state ^= state << 5;
+        return (state >>> 0) / 4294967296;
+    };
+}
 
 export function ArtisticBackground() {
-    const [isMounted, setIsMounted] = useState(false);
+    const id = useId();
+    const { lotuses, paisleys } = useMemo(() => {
+        const rand = makeRng(hashString(id));
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+        const lotuses = Array.from({ length: 5 }, (_, i) => {
+            const size = 56 + rand() * 88;
+            return {
+                key: `lotus-${i}`,
+                x: `${rand() * 100}vw`,
+                y: `${rand() * 100}vh`,
+                scale: 0.55 + rand() * 0.6,
+                size,
+                drift: -(40 + rand() * 140),
+                duration: 22 + rand() * 22,
+                delay: rand() * 10,
+            };
+        });
 
-    if (!isMounted) return null;
+        const paisleys = Array.from({ length: 3 }, (_, i) => {
+            const size = 44 + rand() * 72;
+            return {
+                key: `paisley-${i}`,
+                x: `${rand() * 100}vw`,
+                y: `${rand() * 100}vh`,
+                size,
+                drift: 20 + rand() * 60,
+                duration: 30 + rand() * 30,
+            };
+        });
+
+        return { lotuses, paisleys };
+    }, [id]);
 
     return (
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-background">
             {/* Subtle Gradient Mesh */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-50/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-orange-50/20 via-transparent to-transparent" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-50/25 via-transparent to-transparent" />
+            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-red-50/20 via-transparent to-transparent" />
 
             {/* Floating Elements */}
             <div className="absolute inset-0 opacity-[0.03]"> {/* Very low opacity to keep it white/clean */}
 
                 {/* Large Rotating Chakra - Top Left */}
                 <motion.div
-                    className="absolute -top-20 -left-20 text-[#D32F2F] w-96 h-96"
+                    className="absolute -top-20 -left-20 text-primary w-96 h-96"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
                 >
@@ -73,7 +114,7 @@ export function ArtisticBackground() {
 
                 {/* Large Rotating Chakra - Bottom Right (Slower) */}
                 <motion.div
-                    className="absolute -bottom-32 -right-32 text-[#D32F2F] w-[500px] h-[500px]"
+                    className="absolute -bottom-32 -right-32 text-primary w-[500px] h-[500px]"
                     animate={{ rotate: -360 }}
                     transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
                 >
@@ -81,29 +122,29 @@ export function ArtisticBackground() {
                 </motion.div>
 
                 {/* Floating Lotuses */}
-                {[...Array(5)].map((_, i) => (
+                {lotuses.map((l) => (
                     <motion.div
-                        key={`lotus-${i}`}
-                        className="absolute text-[#D32F2F]"
+                        key={l.key}
+                        className="absolute text-primary"
                         initial={{
-                            x: Math.random() * 100 + "vw",
-                            y: Math.random() * 100 + "vh",
-                            scale: Math.random() * 0.5 + 0.5,
+                            x: l.x,
+                            y: l.y,
+                            scale: l.scale,
                             opacity: 0,
                         }}
                         animate={{
-                            y: [null, Math.random() * -100],
+                            y: [null, l.drift],
                             opacity: [0, 1, 0],
                         }}
                         transition={{
-                            duration: Math.random() * 20 + 20,
+                            duration: l.duration,
                             repeat: Infinity,
                             ease: "easeInOut",
-                            delay: Math.random() * 10,
+                            delay: l.delay,
                         }}
                         style={{
-                            width: `${Math.random() * 100 + 50}px`,
-                            height: `${Math.random() * 100 + 50}px`,
+                            width: `${l.size}px`,
+                            height: `${l.size}px`,
                         }}
                     >
                         <LotusIcon className="w-full h-full" />
@@ -111,27 +152,27 @@ export function ArtisticBackground() {
                 ))}
 
                 {/* Floating Paisleys */}
-                {[...Array(3)].map((_, i) => (
+                {paisleys.map((p) => (
                     <motion.div
-                        key={`paisley-${i}`}
-                        className="absolute text-yellow-600"
+                        key={p.key}
+                        className="absolute text-accent"
                         initial={{
-                            x: Math.random() * 100 + "vw",
-                            y: Math.random() * 100 + "vh",
+                            x: p.x,
+                            y: p.y,
                             rotate: 0,
                         }}
                         animate={{
-                            y: [null, Math.random() * 50],
+                            y: [null, p.drift],
                             rotate: 360,
                         }}
                         transition={{
-                            duration: Math.random() * 30 + 30,
+                            duration: p.duration,
                             repeat: Infinity,
                             ease: "linear",
                         }}
                         style={{
-                            width: `${Math.random() * 80 + 40}px`,
-                            height: `${Math.random() * 80 + 40}px`,
+                            width: `${p.size}px`,
+                            height: `${p.size}px`,
                             opacity: 0.6
                         }}
                     >

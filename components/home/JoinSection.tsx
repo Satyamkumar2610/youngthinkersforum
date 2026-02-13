@@ -7,7 +7,8 @@ import { ArrowRight, Instagram, Linkedin, Twitter, Youtube } from "lucide-react"
 
 export function JoinSection() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-24 bg-background relative overflow-hidden">
+            <div className="absolute inset-0 pattern-rangoli opacity-[0.04] pointer-events-none" />
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -20,7 +21,7 @@ export function JoinSection() {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="relative w-full aspect-square max-w-lg mx-auto">
-                            <div className="absolute inset-0 bg-[#FFCDD2] rounded-full blur-3xl opacity-40" />
+                            <div className="absolute inset-0 bg-red-200/25 rounded-full blur-3xl opacity-50" />
                             <Image
                                 src="/images/community_connect.png"
                                 alt="Join Young India Community"
@@ -39,33 +40,33 @@ export function JoinSection() {
                         viewport={{ once: true }}
                     >
                         <span className="tag-academic mb-6">Join the Movement</span>
-                        <h2 className="text-4xl lg:text-5xl font-bold text-[#1F2937] mb-6">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 font-heading tilak-heading">
                             Connect with <br />
-                            <span className="text-[#D32F2F]">Young India.</span>
+                            <span className="text-primary">Young India.</span>
                         </h2>
 
-                        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                        <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                             We are building a digital and physical network of intellectuals.
                             Follow us on social media for daily updates, or apply to join our core team.
                         </p>
 
                         {/* Social Links Grid */}
                         <div className="grid grid-cols-2 gap-4 mb-10">
-                            <a href="#" className="flex items-center gap-3 p-4 bg-[#FAFAFA] rounded-xl border border-gray-100 hover:border-[#D32F2F] hover:bg-white transition-all group">
-                                <Instagram className="w-5 h-5 text-[#D32F2F]" />
-                                <span className="font-semibold text-gray-700 group-hover:text-[#D32F2F]">Instagram</span>
+                            <a href="#" className="flex items-center gap-3 p-4 bg-white/70 rounded-xl border border-border hover:border-primary hover:bg-white transition-all group shadow-subtle focus-ring">
+                                <Instagram className="w-5 h-5 text-primary" />
+                                <span className="font-semibold text-foreground group-hover:text-primary">Instagram</span>
                             </a>
-                            <a href="#" className="flex items-center gap-3 p-4 bg-[#FAFAFA] rounded-xl border border-gray-100 hover:border-[#0077B5] hover:bg-white transition-all group">
+                            <a href="#" className="flex items-center gap-3 p-4 bg-white/70 rounded-xl border border-border hover:border-[#0077B5] hover:bg-white transition-all group shadow-subtle focus-ring">
                                 <Linkedin className="w-5 h-5 text-[#0077B5]" />
-                                <span className="font-semibold text-gray-700 group-hover:text-[#0077B5]">LinkedIn</span>
+                                <span className="font-semibold text-foreground group-hover:text-[#0077B5]">LinkedIn</span>
                             </a>
-                            <a href="#" className="flex items-center gap-3 p-4 bg-[#FAFAFA] rounded-xl border border-gray-100 hover:border-[#1DA1F2] hover:bg-white transition-all group">
+                            <a href="#" className="flex items-center gap-3 p-4 bg-white/70 rounded-xl border border-border hover:border-[#1DA1F2] hover:bg-white transition-all group shadow-subtle focus-ring">
                                 <Twitter className="w-5 h-5 text-[#1DA1F2]" />
-                                <span className="font-semibold text-gray-700 group-hover:text-[#1DA1F2]">X (Twitter)</span>
+                                <span className="font-semibold text-foreground group-hover:text-[#1DA1F2]">X (Twitter)</span>
                             </a>
-                            <a href="#" className="flex items-center gap-3 p-4 bg-[#FAFAFA] rounded-xl border border-gray-100 hover:border-[#FF0000] hover:bg-white transition-all group">
+                            <a href="#" className="flex items-center gap-3 p-4 bg-white/70 rounded-xl border border-border hover:border-[#FF0000] hover:bg-white transition-all group shadow-subtle focus-ring">
                                 <Youtube className="w-5 h-5 text-[#FF0000]" />
-                                <span className="font-semibold text-gray-700 group-hover:text-[#FF0000]">YouTube</span>
+                                <span className="font-semibold text-foreground group-hover:text-[#FF0000]">YouTube</span>
                             </a>
                         </div>
 

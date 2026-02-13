@@ -2,43 +2,63 @@
 
 :root {
   /* ============================================
-     MODERN ACADEMIC PALETTE (Bodha Research Style)
+     ROOTED COSMOPOLITANISM THEME (Red/White)
+     - Keep backgrounds airy (paper/warm white)
+     - Use red as a signal, not wallpaper
+     - Add Indian micro-motifs via patterns (jaali/rangoli/warli)
      ============================================ */
-  --academic-red: #D32F2F;
-  /* Deep Crimson / Official Red */
-  --academic-red-light: #FFEBEE;
-  /* Light Red Background */
-  --academic-white: #FFFFFF;
-  --academic-offwhite: #FAFAFA;
-  --academic-charcoal: #1F2937;
-  /* Primary Text */
-  --academic-gray: #6B7280;
-  /* Secondary Text */
-  --academic-border: #E5E7EB;
 
-  /* Semantic Mappings */
-  --brand-primary: var(--academic-red);
-  --brand-bg: var(--academic-white);
-  --brand-surface: var(--academic-offwhite);
-  --brand-text: var(--academic-charcoal);
-  --brand-text-muted: var(--academic-gray);
+  /* Core palette */
+  --brand-red: #b22222; /* Geru / Signal red */
+  --brand-red-700: #8f1b1b;
+  --brand-red-100: #f9ebeb;
+  --brand-gold: #d4af37; /* Accent only */
 
-  /* Tailwind Mappings */
-  --primary: var(--academic-red);
-  --primary-foreground: var(--academic-white);
-  --background: var(--academic-white);
-  --foreground: var(--academic-charcoal);
-  --muted: var(--academic-offwhite);
-  --border: var(--academic-border);
+  --paper: #fffaf0; /* Warm white canvas */
+  --white: #ffffff;
+  --ink: #111111;
+  --charcoal: #1f2937;
+  --muted-ink: #4b5563;
+  --border: #e5e7eb;
+
+  /* Semantic tokens (used by Tailwind config) */
+  --primary: var(--brand-red);
+  --primary-foreground: var(--white);
+  --background: var(--paper);
+  --foreground: var(--charcoal);
+  --accent: var(--brand-gold);
+  --muted: color-mix(in srgb, var(--paper) 92%, var(--brand-red) 8%);
+  --muted-foreground: var(--muted-ink);
+  --input: var(--border);
+
+  /* Back-compat tokens used in components */
+  --academic-red: var(--brand-red);
+  --academic-red-light: var(--brand-red-100);
+  --academic-white: var(--white);
+  --academic-offwhite: var(--paper);
+  --academic-charcoal: var(--charcoal);
+  --academic-gray: var(--muted-ink);
+  --academic-border: var(--border);
+
+  /* Shadows (consumed via Tailwind `boxShadow`) */
+  --shadow-subtle: 0 1px 2px rgb(0 0 0 / 0.06);
+  --shadow-card: 0 10px 30px -20px rgb(17 17 17 / 0.18);
+  --shadow-floating: 0 22px 50px -30px rgb(17 17 17 / 0.25);
+  --shadow-glow: 0 0 0 1px rgb(178 34 34 / 0.14), 0 18px 60px -40px rgb(178 34 34 / 0.35);
+  --shadow-red-glow: 0 0 0 1px rgb(178 34 34 / 0.16), 0 18px 60px -40px rgb(178 34 34 / 0.45);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 10px -6px rgb(0 0 0 / 0.22);
+  --shadow-lg: 0 18px 40px -24px rgb(0 0 0 / 0.28);
 
   /* Fonts */
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-outfit);
+  /* Local/system fallbacks (keeps builds offline-friendly). If you want
+     specific fonts, add local font files + @font-face and update these vars. */
+  --font-inter: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-outfit: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-playfair: ui-serif, Georgia, "Times New Roman", Times, serif;
 
-  /* Shadows - Subtle & Clean */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-playfair);
 }
 
 /* ============================================
@@ -46,10 +66,11 @@
    ============================================ */
 
 body {
-  background: var(--brand-bg);
-  color: var(--brand-text);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
   line-height: 1.6;
+  text-rendering: geometricPrecision;
 }
 
 h1,
@@ -59,7 +80,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-outfit), sans-serif;
-  color: var(--brand-text);
+  color: var(--foreground);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -161,6 +182,115 @@ h6 {
 .tag-academic:hover {
   background-color: var(--academic-red-light);
   color: var(--academic-red);
+}
+
+/* ============================================
+   CULTURAL MICRO-MOTIFS (Background patterns)
+   ============================================ */
+
+/* Jaali: subtle lattice dots (works well at low opacity) */
+.bg-jaali {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgb(178 34 34 / 0.20) 1px, transparent 1.2px);
+  background-size: 18px 18px;
+}
+
+/* Rangoli: soft radial / conic symmetry */
+.pattern-rangoli {
+  background-image:
+    conic-gradient(from 180deg at 50% 50%,
+      rgb(178 34 34 / 0.10) 0deg,
+      transparent 30deg,
+      rgb(178 34 34 / 0.06) 60deg,
+      transparent 90deg,
+      rgb(178 34 34 / 0.08) 120deg,
+      transparent 150deg,
+      rgb(178 34 34 / 0.10) 180deg,
+      transparent 210deg,
+      rgb(178 34 34 / 0.06) 240deg,
+      transparent 270deg,
+      rgb(178 34 34 / 0.08) 300deg,
+      transparent 330deg,
+      rgb(178 34 34 / 0.10) 360deg
+    ),
+    radial-gradient(circle at 50% 50%, rgb(212 175 55 / 0.10) 0%, transparent 55%);
+  background-size: 520px 520px;
+  background-position: center;
+}
+
+/* Warli: hairline zig + dot rhythm */
+.pattern-warli {
+  background-image:
+    linear-gradient(90deg, rgb(178 34 34 / 0.10) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 9px 9px, rgb(178 34 34 / 0.10) 1px, transparent 1.2px);
+  background-size: 36px 36px;
+}
+
+/* ============================================
+   BRAND DETAILS
+   ============================================ */
+
+/* "Tilak" heading marker */
+.tilak-heading {
+  position: relative;
+  padding-left: 0.95rem;
+}
+
+.tilak-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, var(--primary), color-mix(in srgb, var(--primary) 60%, white 40%));
+  box-shadow: 0 0 0 1px rgb(178 34 34 / 0.10);
+}
+
+.tilak-heading-animated::before {
+  background-size: 100% 200%;
+  animation: tilak-shift 3.8s ease-in-out infinite;
+}
+
+@keyframes tilak-shift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Focus ring */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgb(178 34 34 / 0.18);
+}
+
+/* Perspective helper */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Shimmer overlay for buttons/cards (used by `MagneticButton`) */
+.btn-shimmer {
+  position: relative;
+  isolation: isolate;
+}
+
+.btn-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  background: linear-gradient(120deg, transparent 40%, rgb(255 255 255 / 0.22) 50%, transparent 60%);
+  transform: translateX(-30%) rotate(10deg);
+  opacity: 0;
+  transition: opacity 250ms ease, transform 850ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-shimmer:hover::after {
+  opacity: 1;
+  transform: translateX(30%) rotate(10deg);
 }
 
 /* ============================================

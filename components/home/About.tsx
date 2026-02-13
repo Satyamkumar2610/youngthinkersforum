@@ -15,7 +15,8 @@ const milestones = [
 
 export function About() {
     return (
-        <section className="py-24 bg-[#FAFAFA] overflow-hidden">
+        <section className="py-24 bg-background overflow-hidden relative">
+            <div className="absolute inset-0 pattern-warli opacity-[0.03] pointer-events-none" />
             <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     {/* Who We Are Context */}
@@ -27,11 +28,11 @@ export function About() {
                             transition={{ duration: 0.8 }}
                         >
                             <span className="tag-academic mb-4">Who We Are</span>
-                            <h2 className="text-4xl font-bold text-[#1F2937] mb-6">
-                                Custodians of <span className="text-[#D32F2F]">Heritage</span>,<br />
+                            <h2 className="text-4xl font-bold text-foreground mb-6 font-heading tilak-heading">
+                                Custodians of <span className="text-primary">Heritage</span>,<br />
                                 Architects of Future.
                             </h2>
-                            <div className="prose prose-lg text-gray-600">
+                            <div className="prose prose-lg text-muted-foreground">
                                 <p className="mb-4">
                                     Young Thinkers Forum is an ecosystem of intellectual rigor. We exist to challenge
                                     shallow narratives and build deep capacity for critical thinking among Indian youth.
@@ -46,7 +47,7 @@ export function About() {
 
                     {/* Scroll Art */}
                     <div className="flex justify-center relative">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#D32F2F]/5 to-transparent rounded-full blur-2xl" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-2xl" />
                         <Image
                             src="/images/history_scroll.png"
                             alt="History Scroll"
@@ -59,9 +60,9 @@ export function About() {
             </div>
 
             {/* History Ticker */}
-            <div className="w-full bg-white border-y border-gray-100 py-12 relative">
+            <div className="w-full bg-white/60 backdrop-blur border-y border-border py-12 relative">
                 <div className="max-w-7xl mx-auto px-6 mb-8">
-                    <h3 className="text-xl font-bold text-[#1F2937]">Our Journey</h3>
+                    <h3 className="text-xl font-bold text-foreground font-heading">Our Journey</h3>
                 </div>
 
                 {/* Rolling Ticker */}
@@ -80,10 +81,10 @@ export function About() {
                     >
                         {/* Duplicate lists for seamless loop */}
                         {[...milestones, ...milestones, ...milestones].map((item, i) => (
-                            <div key={i} className="flex-shrink-0 w-80 p-6 bg-[#FAFAFA] border border-gray-100 rounded-xl hover:border-[#D32F2F] transition-colors cursor-default">
-                                <span className="text-4xl font-bold text-[#E5E7EB] block mb-2">{item.year}</span>
-                                <h4 className="text-lg font-bold text-[#D32F2F] mb-1">{item.title}</h4>
-                                <p className="text-sm text-gray-500">{item.desc}</p>
+                            <div key={i} className="flex-shrink-0 w-80 p-6 bg-white/70 border border-border rounded-xl hover:border-primary transition-colors cursor-default shadow-subtle">
+                                <span className="text-4xl font-bold text-border block mb-2">{item.year}</span>
+                                <h4 className="text-lg font-bold text-primary mb-1">{item.title}</h4>
+                                <p className="text-sm text-muted-foreground">{item.desc}</p>
                             </div>
                         ))}
                     </motion.div>

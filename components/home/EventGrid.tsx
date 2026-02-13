@@ -22,8 +22,8 @@ export function EventGrid() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div>
                         <span className="tag-academic mb-4">What We Do</span>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-[#1F2937]">
-                            Verticals & <span className="text-[#D32F2F]">Engagements</span>
+                        <h2 className="text-3xl lg:text-4xl font-bold font-heading text-[#1F2937]">
+                            Verticals & <span className="text-[#C21807]">Engagements</span>
                         </h2>
                     </div>
                     <Link href="/events" className="btn-academic btn-academic-outline text-sm">
@@ -41,24 +41,23 @@ export function EventGrid() {
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                         >
                             <Link href="/events" className="group block h-full">
-                                <article className="bg-[#FAFAFA] border border-gray-100 rounded-xl overflow-hidden h-full flex flex-col hover:shadow-xl hover:border-[#D32F2F]/30 hover:-translate-y-1 transition-all duration-300">
+                                <article className="bg-white border border-gray-200 h-full flex flex-col rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                                     <div className="h-48 bg-gray-200 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
                                         <div className="absolute top-4 left-4 z-10">
-                                            <span className="bg-white/90 backdrop-blur text-[#D32F2F] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                                            <span className="bg-[#C21807]/90 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                                                 {event.type}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="p-6 flex flex-col flex-grow relative bg-[#FAFAFA] z-20">
-                                        <div className="flex items-center gap-4 text-xs text-gray-500 mb-4 font-mono">
+                                    <div className="p-6 flex flex-col flex-grow relative bg-white z-20">
+                                        <div className="flex items-center gap-4 text-xs text-[#C21807] font-medium mb-4 font-mono">
                                             <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {event.date}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-[#1F2937] mb-3 group-hover:text-[#D32F2F] transition-colors line-clamp-2">
+                                        <h3 className="text-xl font-bold font-heading text-[#1F2937] mb-3 group-hover:text-[#C21807] transition-colors line-clamp-2 leading-tight">
                                             {event.title}
                                         </h3>
-                                        <div className="mt-auto pt-4 flex gap-2">
-                                            <span className="text-xs text-gray-400">#debate</span>
-                                            <span className="text-xs text-gray-400">#policy</span>
+                                        <div className="mt-auto pt-4 flex gap-2 border-t border-gray-100">
+                                            <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 group-hover:text-[#C21807] transition-colors">Read More</span>
                                         </div>
                                     </div>
                                 </article>
@@ -74,9 +73,9 @@ export function EventGrid() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                         <div>
                             <span className="tag-academic mb-4 bg-white border border-gray-100">Publications</span>
-                            <h3 className="text-3xl font-bold text-[#1F2937] mb-6">
+                            <h3 className="text-3xl font-bold font-heading text-[#1F2937] mb-6">
                                 Research & <br />
-                                <span className="text-[#D32F2F]">Intellectual Output</span>
+                                <span className="text-[#C21807]">Intellectual Output</span>
                             </h3>
                             <p className="text-gray-600 mb-8 max-w-md">
                                 Read our latest journals, policy briefs, and articles. We publish rigorous analysis

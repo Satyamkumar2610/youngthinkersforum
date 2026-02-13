@@ -20,22 +20,22 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="bg-white py-24 sm:py-32 min-h-screen relative overflow-hidden">
+        <div className="bg-background py-24 sm:py-32 min-h-screen relative overflow-hidden">
             {/* Background pattern */}
             <div className="fixed inset-0 pattern-rangoli opacity-5 pointer-events-none z-0" />
 
             <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
                 <ScrollReveal animation="fade-up" className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-serif tilak-heading tilak-heading-animated">
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-serif tilak-heading tilak-heading-animated">
                         <AnimatedText text="Get in Touch" staggerChildren={0.08} />
                     </h2>
                     <motion.p
-                        className="mt-6 text-lg leading-8 text-gray-600"
+                        className="mt-6 text-lg leading-8 text-muted-foreground"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        Have a question or want to get involved? We'd love to hear from you.
+                        Have a question or want to get involved? We&apos;d love to hear from you.
                     </motion.p>
                 </ScrollReveal>
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
                                 animate={{ scale: focusedField === 'name' ? 1.02 : 1 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-gray-900">
+                                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-foreground">
                                     Full Name
                                 </label>
                                 <div className="mt-2.5">
@@ -61,7 +61,7 @@ export default function ContactPage() {
                                         id="name"
                                         autoComplete="name"
                                         required
-                                        className="block w-full rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 px-4 py-3 text-foreground shadow-subtle ring-1 ring-inset ring-border placeholder:text-muted-foreground/70 focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 sm:text-sm sm:leading-6 bg-white/70 backdrop-blur"
                                         placeholder="Your name"
                                         onFocus={() => setFocusedField('name')}
                                         onBlur={() => setFocusedField(null)}
@@ -75,7 +75,7 @@ export default function ContactPage() {
                                 animate={{ scale: focusedField === 'email' ? 1.02 : 1 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+                                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-foreground">
                                     Email
                                 </label>
                                 <div className="mt-2.5">
@@ -85,7 +85,7 @@ export default function ContactPage() {
                                         id="email"
                                         autoComplete="email"
                                         required
-                                        className="block w-full rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 px-4 py-3 text-foreground shadow-subtle ring-1 ring-inset ring-border placeholder:text-muted-foreground/70 focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 sm:text-sm sm:leading-6 bg-white/70 backdrop-blur"
                                         placeholder="your@email.com"
                                         onFocus={() => setFocusedField('email')}
                                         onBlur={() => setFocusedField(null)}
@@ -99,7 +99,7 @@ export default function ContactPage() {
                                 animate={{ scale: focusedField === 'subject' ? 1.02 : 1 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <label htmlFor="subject" className="block text-sm font-semibold leading-6 text-gray-900">
+                                <label htmlFor="subject" className="block text-sm font-semibold leading-6 text-foreground">
                                     Subject
                                 </label>
                                 <div className="mt-2.5">
@@ -108,7 +108,7 @@ export default function ContactPage() {
                                         name="subject"
                                         id="subject"
                                         required
-                                        className="block w-full rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 sm:text-sm sm:leading-6"
+                                        className="block w-full rounded-md border-0 px-4 py-3 text-foreground shadow-subtle ring-1 ring-inset ring-border placeholder:text-muted-foreground/70 focus:ring-2 focus:ring-inset focus:ring-primary transition-all duration-300 sm:text-sm sm:leading-6 bg-white/70 backdrop-blur"
                                         placeholder="How can we help?"
                                         onFocus={() => setFocusedField('subject')}
                                         onBlur={() => setFocusedField(null)}
@@ -193,7 +193,7 @@ export default function ContactPage() {
                                 {/* Shimmer effect */}
                                 <motion.div
                                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-                                    animate={{ translateX: formState === 'idle' ? ["−100%", "200%"] : "−100%" }}
+                                    animate={{ translateX: formState === 'idle' ? ["-100%", "200%"] : "-100%" }}
                                     transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
                                 />
                             </motion.button>
