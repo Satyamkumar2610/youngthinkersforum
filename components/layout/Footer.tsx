@@ -23,9 +23,9 @@ const footerLinks = {
 
 export function Footer() {
     return (
-        <footer className="relative border-t border-border pt-16 pb-8 bg-background overflow-hidden">
+        <footer className="relative z-10 border-t border-border pt-16 pb-8 bg-background overflow-hidden">
             <div className="absolute inset-0 pattern-warli opacity-[0.035] pointer-events-none" />
-            <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-red-200/20 blur-3xl pointer-events-none" />
+            <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-[var(--brand-red-100)]/20 blur-3xl pointer-events-none" />
 
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -43,8 +43,8 @@ export function Footer() {
                         </p>
                         <div className="flex gap-3">
                             <a href="#" className="p-2 rounded-full bg-white/70 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-all focus-ring"><Instagram className="w-4 h-4" /></a>
-                            <a href="#" className="p-2 rounded-full bg-white border border-gray-100 text-gray-400 hover:border-[#0077B5] hover:text-[#0077B5] transition-all"><Linkedin className="w-4 h-4" /></a>
-                            <a href="#" className="p-2 rounded-full bg-white border border-gray-100 text-gray-400 hover:border-[#1DA1F2] hover:text-[#1DA1F2] transition-all"><Twitter className="w-4 h-4" /></a>
+                            <a href="#" className="p-2 rounded-full bg-white border border-border text-muted-foreground hover:border-[#0077B5] hover:text-[#0077B5] transition-all"><Linkedin className="w-4 h-4" /></a>
+                            <a href="#" className="p-2 rounded-full bg-white border border-border text-muted-foreground hover:border-[#1DA1F2] hover:text-[#1DA1F2] transition-all"><Twitter className="w-4 h-4" /></a>
                         </div>
                     </div>
 
