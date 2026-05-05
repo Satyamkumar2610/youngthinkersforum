@@ -42,9 +42,9 @@ export function Footer() {
                             open to the world, and dedicated to service.
                         </p>
                         <div className="flex gap-3">
-                            <a href="#" className="p-2 rounded-full bg-white/70 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-all focus-ring"><Instagram className="w-4 h-4" /></a>
-                            <a href="#" className="p-2 rounded-full bg-white border border-border text-muted-foreground hover:border-[#0077B5] hover:text-[#0077B5] transition-all"><Linkedin className="w-4 h-4" /></a>
-                            <a href="#" className="p-2 rounded-full bg-white border border-border text-muted-foreground hover:border-[#1DA1F2] hover:text-[#1DA1F2] transition-all"><Twitter className="w-4 h-4" /></a>
+                            <a href="#" aria-label="Instagram" className="p-2 rounded-full bg-white/70 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-all focus-ring"><Instagram className="w-4 h-4" /></a>
+                            <a href="#" aria-label="LinkedIn" className="p-2 rounded-full bg-white border border-border text-muted-foreground hover:border-[#0077B5] hover:text-[#0077B5] transition-all"><Linkedin className="w-4 h-4" /></a>
+                            <a href="#" aria-label="X (Twitter)" className="p-2 rounded-full bg-white border border-border text-muted-foreground hover:border-[#1DA1F2] hover:text-[#1DA1F2] transition-all"><Twitter className="w-4 h-4" /></a>
                         </div>
                     </div>
 
