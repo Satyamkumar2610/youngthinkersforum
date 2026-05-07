@@ -58,4 +58,4 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 -   **Animation**: Native CSS Transitions + Framer Motion (planned)
 
 ---
-*Developed for the Young Thinkers' Forum.*
+*Developed for the Young Thinkers' Forum.* 
