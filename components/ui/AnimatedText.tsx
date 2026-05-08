@@ -6,7 +6,6 @@ interface AnimatedTextProps {
     text: string;
     className?: string;
     delay?: number;
-    duration?: number;
     staggerChildren?: number;
     type?: "words" | "chars";
     once?: boolean;
@@ -16,7 +15,6 @@ export function AnimatedText({
     text,
     className = "",
     delay = 0,
-    duration = 0.05,
     staggerChildren = 0.03,
     type = "words",
     once = true,
