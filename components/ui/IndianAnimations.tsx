@@ -214,12 +214,10 @@ export function FloatingCulturalElement({
 // Parallax layer component
 export function ParallaxLayer({
     children,
-    className = "",
-    speed = 0.5
+    className = ""
 }: {
     children: ReactNode;
     className?: string;
-    speed?: number;
 }) {
     const y = useMotionValue(0);
 

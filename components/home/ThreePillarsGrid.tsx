@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Eye, Target, Heart } from "lucide-react";
+import { Eye, Target } from "lucide-react";
 
 export function ThreePillarsGrid() {
     return (

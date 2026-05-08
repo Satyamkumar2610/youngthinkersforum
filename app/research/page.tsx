@@ -4,7 +4,7 @@ import { posts } from "@/lib/data";
 import { Filter, Calendar, Clock } from "lucide-react";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { GlowCard } from "@/components/ui/GlowCard";
 import { PosterArt } from "@/components/ui/PosterArt";

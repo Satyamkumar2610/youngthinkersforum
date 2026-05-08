@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, MapPin, ArrowRight, FileText } from "lucide-react";
+import { Clock, FileText } from "lucide-react";
 import content from "@/content.json";
 
 export function EventGrid() {

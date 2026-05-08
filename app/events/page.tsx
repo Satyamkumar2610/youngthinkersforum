@@ -30,7 +30,7 @@ export default function EventsPage() {
 
                 <div className="mx-auto mt-16 max-w-2xl lg:mx-0 lg:max-w-none">
                     <StaggerContainer className="space-y-8" staggerDelay={0.1}>
-                        {events.map((event, index) => (
+                        {events.map((event) => (
                             <StaggerItem key={event.id}>
                                 <motion.div
                                     className="flex flex-col lg:flex-row gap-6 bg-white/70 backdrop-blur border border-border rounded-xl p-8 shadow-subtle relative overflow-hidden group cursor-pointer"
