@@ -55,7 +55,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 -   **Styling**: Tailwind CSS v4 + Custom CSS Variables
 -   **Icons**: Lucide React
 -   **Fonts**: Playfair Display (Headers) + Inter (Body)
--   **Animation**: Native CSS Transitions + Framer Motion (planned)
+-   **Animation**: Native CSS Transitions + Framer Motion
 
 ---
 *Developed for the Young Thinkers' Forum.* 
