@@ -61,7 +61,7 @@ export function About() {
             {/* History Ticker */}
             <div className="w-full bg-white/60 backdrop-blur border-y border-border py-12 relative">
                 <div className="max-w-7xl mx-auto px-6 mb-8">
-                    <h3 className="text-xl font-bold text-foreground font-heading">Our Journey</h3>
+                    <h3 className="text-xl font-bold text-foreground font-heading uppercase tracking-wider">Our Journey</h3>
                 </div>
 
                 {/* Rolling Ticker */}
