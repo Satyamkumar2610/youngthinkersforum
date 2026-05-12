@@ -112,7 +112,7 @@ export function EventGrid() {
                                                 <span className="text-xs text-gray-500">{pub.date}</span>
                                             </div>
                                         </div>
-                                        <span className="text-xs font-semibold bg-gray-100 px-2 py-1 rounded text-gray-600 uppercase">
+                                        <span className="text-xs font-semibold bg-gray-200 px-2 py-1 rounded-md text-gray-700 uppercase">
                                             {pub.tag}
                                         </span>
                                     </motion.div>
