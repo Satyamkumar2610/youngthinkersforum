@@ -65,7 +65,7 @@ export function Hero() {
                                 ))}
                             </div>
                             <p className="text-muted-foreground">
-                                Joined by <strong className="text-primary">1,000+</strong> Young Thinkers
+                                Joined by <strong className="text-primary font-bold">1,000+</strong> Young Thinkers
                             </p>
                         </motion.div>
                     </div>
