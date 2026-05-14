@@ -46,7 +46,7 @@ export function JoinSection() {
                         </h2>
 
                         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                            We are building a vibrant digital and physical network of young intellectuals.
+                            We are building a vibrant digital and physical network of young intellectuals and change-makers.
                             Follow us on social media for daily updates, or apply to join our core team.
                         </p>
 
