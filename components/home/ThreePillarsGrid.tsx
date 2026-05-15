@@ -74,7 +74,7 @@ export function ThreePillarsGrid() {
                                     <Target className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold font-heading text-white mb-2 transition-colors">Our Mission</h3>
+                                    <h3 className="text-xl font-bold font-heading text-white mb-2 transition-colors tracking-wide">Our Mission</h3>
                                     <p className="text-gray-300 leading-relaxed font-medium">
                                         To provide rigorous platforms for debate, research, and policy analysis,
                                         bridging the gap between academic theory and social reality.
