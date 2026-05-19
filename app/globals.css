@@ -233,7 +233,7 @@ h6 {
 /* "Tilak" heading marker */
 .tilak-heading {
   position: relative;
-  padding-left: 0.95rem;
+  padding-left: 1rem;
 }
 
 .tilak-heading::before {
