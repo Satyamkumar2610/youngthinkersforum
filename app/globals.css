@@ -168,7 +168,7 @@ h6 {
 .tag-academic {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   background-color: var(--academic-offwhite);
   color: var(--academic-gray);
   border-radius: 6px;
