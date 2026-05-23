@@ -250,7 +250,7 @@ h6 {
 
 .tilak-heading-animated::before {
   background-size: 100% 200%;
-  animation: tilak-shift 3.8s ease-in-out infinite;
+  animation: tilak-shift 4s ease-in-out infinite;
 }
 
 @keyframes tilak-shift {
