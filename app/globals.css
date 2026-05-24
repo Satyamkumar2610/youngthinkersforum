@@ -175,7 +175,7 @@ h6 {
   font-size: 0.75rem;
   font-family: var(--font-outfit), sans-serif;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.025em;
   transition: all 0.25s ease;
 }
 
