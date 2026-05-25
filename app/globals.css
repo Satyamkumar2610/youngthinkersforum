@@ -267,7 +267,7 @@ h6 {
 
 /* Perspective helper */
 .perspective-1000 {
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 /* Shimmer overlay for buttons/cards (used by `MagneticButton`) */
