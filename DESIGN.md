@@ -23,6 +23,7 @@ We use varying shades of warm white to create depth without relying on heavy bor
 Instead of heavy illustrations, we use **Hairline Borders** and **Micro-Motifs**.
 -   **The "Tilak"**: A 3px vertical red line (`.tilak-heading`) next to section headers. Represents focus and awakening.
 -   **Hairline Borders**: 0.5px red opacity lines used to separate sections, inspired by Aipan geometric art.
+-   **Lattice Jaali**: Radial grid lattice dots at low opacity (`bg-jaali`) for cultural context.
 
 ## 3. Typography
 -   **Headings**: *Playfair Display* (Serif). Used for intellectual authority and editorial feel.
