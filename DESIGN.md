@@ -29,6 +29,7 @@ Instead of heavy illustrations, we use **Hairline Borders** and **Micro-Motifs**
 -   **Headings**: *Playfair Display* (Serif). Used for intellectual authority and editorial feel.
 -   **Body**: *Inter* (Sans-serif). Clean, readable, and neutral to let the content speak.
 
+-   **Tags & Labels**: *Outfit* (Sans-serif) at bold weight for tags.
 ## 4. Motion & Interaction
 "Dynamic" means "Alive", not "Chaotic".
 -   **Hover**: Cards do not just change color; they **lift** (`-5px`) and cast a deeper shadow (`shadow-floating`).
