@@ -36,5 +36,6 @@ Instead of heavy illustrations, we use **Hairline Borders** and **Micro-Motifs**
 -   **Red Expansion**: On hover, the top border of cards expands from the center (`scale-x-100`).
 
 ---
+-   **Magnetic Feel**: Sub-pixel translation transitions for primary buttons.
 
 *This document serves as the single source of truth for all design decisions.*
