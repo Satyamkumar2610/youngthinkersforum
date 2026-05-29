@@ -39,3 +39,6 @@ Instead of heavy illustrations, we use **Hairline Borders** and **Micro-Motifs**
 -   **Magnetic Feel**: Sub-pixel translation transitions for primary buttons.
 
 *This document serves as the single source of truth for all design decisions.*
+
+## 5. Modern 3D Integrations
+-   **Perspective**: Elements utilizes a 1200px 3D perspective frame (`.perspective-1000`) for depth rendering.
