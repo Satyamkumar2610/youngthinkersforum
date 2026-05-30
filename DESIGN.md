@@ -42,3 +42,6 @@ Instead of heavy illustrations, we use **Hairline Borders** and **Micro-Motifs**
 
 ## 5. Modern 3D Integrations
 -   **Perspective**: Elements utilizes a 1200px 3D perspective frame (`.perspective-1000`) for depth rendering.
+
+---
+*Last Updated: May 30, 2026*
