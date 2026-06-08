@@ -2,13 +2,20 @@
 
 import { motion } from "framer-motion";
 
+export interface MotionWrapperProps {
+    /** The child elements to animate */
+    children: React.ReactNode;
+    /** Optional Tailwind classes for styling */
+    className?: string;
+}
+
+/**
+ * A wrapper component that applies a fade-in and slide-up animation.
+ */
 export default function MotionWrapper({
     children,
     className,
-}: {
-    children: React.ReactNode;
-    className?: string;
-}) {
+}: MotionWrapperProps) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 10 }}
