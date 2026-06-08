@@ -1,6 +1,10 @@
 {
   "name": "young-thinkers-forum",
   "version": "0.1.0",
+  "description": "A modern, high-performance platform for the Young Thinkers' Forum.",
+  "author": "Satyam Kumar <satyamkumarsingh2610@gmail.com>",
+  "license": "MIT",
+  "keywords": ["nextjs", "react", "framer-motion", "tailwind"],
   "private": true,
   "scripts": {
     "dev": "next dev",
