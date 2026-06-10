@@ -1,4 +1,4 @@
-# Young Thinkers' Forum
+# Young Thinkers' Forum Platform
 
 > *Cultivating the next generation of Indian intellectuals.*
 
