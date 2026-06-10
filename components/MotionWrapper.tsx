@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 export interface MotionWrapperProps {
-    /** The child elements to animate */
+    /** The child elements to animate smoothly */
     children: React.ReactNode;
     /** Optional Tailwind classes for styling */
     className?: string;
