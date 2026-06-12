@@ -41,6 +41,16 @@
       "imageUrl": "/images/research_ocean_1770551233054.png"
     }
   ],
+  "milestones": [
+    { "year": "2018", "title": "Foundation", "desc": "Established in Bhopal with 50 members." },
+    { "year": "2019", "title": "Expansion", "desc": "First State-level Conclave held." },
+    { "year": "2020", "title": "Digital Pivot", "desc": "Launched online policy labs during pandemic." },
+    { "year": "2021", "title": "National Presence", "desc": "Chapters opened in 3 new states." },
+    { "year": "2022", "title": "Fellowship", "desc": "Inaugural Policy Fellowship cohort." },
+    { "year": "2023", "title": "Media Arm", "desc": "Started 'The Indian Thinker' journal." },
+    { "year": "2024", "title": "National Recognition", "desc": "Awarded Best Youth Policy Forum by Ministry of Education." },
+    { "year": "2025", "title": "International Chapters", "desc": "Launched chapters in UAE and UK for the Indian diaspora." }
+  ],
   "events": [
     {
       "id": 1,
