@@ -65,6 +65,15 @@
    BASE STYLES
    ============================================ */
 
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgb(178 34 34 / 0.15);
+  color: var(--brand-red-700);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
