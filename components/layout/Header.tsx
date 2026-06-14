@@ -28,6 +28,11 @@ export function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Close mobile menu whenever the active route changes
+    useEffect(() => {
+        setMobileOpen(false);
+    }, [pathname]);
+
     return (
         <header
             className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${isScrolled
@@ -37,7 +42,7 @@ export function Header() {
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Global">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-3 group">
+                <Link href="/" className="flex items-center gap-3 group" aria-label="Young Thinkers Forum — Home">
                     <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-subtle transition-transform group-hover:scale-105 ring-1 ring-white/30">
                         <span className="font-heading font-bold text-lg">YTF</span>
                     </div>
