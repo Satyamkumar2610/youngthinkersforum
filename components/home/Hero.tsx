@@ -31,13 +31,13 @@ export function Hero() {
                                 <br />
                                 <span className="text-primary relative inline-block">
                                     Intellectual Future
-                                    <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-primary/20" />
+                                    <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-primary/20" aria-hidden="true" />
                                 </span>
                             </h1>
 
                             <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-lg font-medium">
-                                A premier platform for rigorous debate, critical analysis, and nurturing
-                                the next generation of thought leaders.
+                                A premier platform for rigorous debate, original research, and nurturing
+                                the next generation of Indian thought leaders — rooted in heritage, ready for the world.
                             </p>
 
                             <div className="flex flex-wrap gap-4">
@@ -65,7 +65,7 @@ export function Hero() {
                                 ))}
                             </div>
                             <p className="text-muted-foreground">
-                                Joined by <strong className="text-primary font-bold">1,000+</strong> Young Thinkers
+                                Joined by <strong className="text-primary font-bold">2,500+</strong> Young Thinkers
                             </p>
                         </motion.div>
                     </div>
