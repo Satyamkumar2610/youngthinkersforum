@@ -2,15 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import content from "@/content.json";
 
-const milestones = [
-    { year: "2018", title: "Foundation", desc: "Established in Bhopal with 50 members." },
-    { year: "2019", title: "Expansion", desc: "First State-level Conclave held." },
-    { year: "2020", title: "Digital Pivot", desc: "Launched online policy labs during pandemic." },
-    { year: "2021", title: "National Presence", desc: "Chapters opened in 3 new states." },
-    { year: "2022", title: "Fellowship", desc: "Inaugural Policy Fellowship cohort." },
-    { year: "2023", title: "Media Arm", desc: "Started 'The Indian Thinker' journal." },
-];
+const milestones = content.milestones;
+
 
 export function About() {
     return (
