@@ -14,6 +14,13 @@ export function EventGrid() {
         { title: "Cultural Economics in MP", date: "Nov 2025", tag: "Case Study" },
     ];
 
+    const typeGradient: Record<string, string> = {
+        Summit: "from-red-100 via-orange-50 to-amber-100",
+        Workshop: "from-blue-50 via-indigo-50 to-purple-100",
+        Cultural: "from-pink-50 via-rose-50 to-red-100",
+        Debate: "from-emerald-50 via-teal-50 to-cyan-100",
+    };
+
     return (
         <section className="py-24 bg-white border-t border-gray-100">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -42,7 +49,7 @@ export function EventGrid() {
                         >
                             <Link href="/events" className="group block h-full">
                                 <article className="bg-white border border-gray-200 h-full flex flex-col rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                    <div className="h-48 bg-gray-200 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                                    <div className={`h-48 bg-gradient-to-br ${typeGradient[event.type] ?? "from-gray-100 to-gray-200"} relative overflow-hidden group-hover:scale-105 transition-transform duration-500`}>
                                         <div className="absolute top-4 left-4 z-10">
                                             <span className="bg-[#C21807]/90 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                                                 {event.type}

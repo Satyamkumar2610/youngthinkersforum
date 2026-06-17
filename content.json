@@ -75,6 +75,14 @@
       "location": "Mumbai",
       "description": "Launch and discussion of the new anthology of essays by YTF fellows.",
       "type": "Cultural"
+    },
+    {
+      "id": 4,
+      "title": "National Debate Championship 2026",
+      "date": "May 10, 2026",
+      "location": "Jaipur, Rajasthan",
+      "description": "Inter-university parliamentary debate on the theme 'Technology and Democracy in India'.",
+      "type": "Debate"
     }
   ],
   "team": [
