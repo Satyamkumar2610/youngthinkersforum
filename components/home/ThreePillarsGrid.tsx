@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Eye, Target } from "lucide-react";
+import { Eye, Target, Users2 } from "lucide-react";
 
 export function ThreePillarsGrid() {
     return (
@@ -78,6 +78,27 @@ export function ThreePillarsGrid() {
                                     <p className="text-gray-300 leading-relaxed font-medium">
                                         To provide rigorous platforms for debate, research, and policy analysis,
                                         bridging the gap between academic theory and social reality.
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 bg-white rounded-lg shadow-subtle text-primary group-hover:bg-primary group-hover:text-white transition-colors border border-border">
+                                    <Users2 className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold font-heading text-foreground mb-2 group-hover:text-primary transition-colors">Our Community</h3>
+                                    <p className="text-muted-foreground leading-relaxed font-medium">
+                                        A network of 2,500+ thinkers, researchers, and leaders across India and the diaspora,
+                                        united by a love of ideas and a commitment to service.
                                     </p>
                                 </div>
                             </div>
