@@ -50,6 +50,20 @@ export function JoinSection() {
                             Follow us on social media for daily updates, or apply to join our core team.
                         </p>
 
+                        {/* Quick Stats */}
+                        <div className="flex flex-wrap gap-4 mb-8">
+                            {[
+                                { value: "2,500+", label: "Members" },
+                                { value: "12", label: "States" },
+                                { value: "7+", label: "Years Active" },
+                            ].map((stat) => (
+                                <div key={stat.label} className="flex flex-col items-center px-6 py-3 bg-white/80 border border-border rounded-2xl shadow-subtle min-w-[90px]">
+                                    <span className="text-2xl font-bold text-primary font-heading">{stat.value}</span>
+                                    <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-0.5">{stat.label}</span>
+                                </div>
+                            ))}
+                        </div>
+
                         {/* Social Links Grid */}
                         <div className="grid grid-cols-2 gap-4 mb-10">
                             <a href="#" className="flex items-center gap-3 p-4 bg-white/70 rounded-xl border border-border hover:border-primary hover:bg-white transition-all group shadow-subtle focus-ring">
