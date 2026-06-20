@@ -75,10 +75,30 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Newsletter / Legal (Placeholder) */}
+                    {/* Newsletter / Legal */}
                     <div>
-                        <h3 className="font-heading font-semibold text-foreground mb-6 text-sm uppercase tracking-wider">Legal</h3>
-                        <ul className="space-y-3">
+                        <h3 className="font-heading font-semibold text-foreground mb-6 text-sm uppercase tracking-wider">Newsletter</h3>
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                            Get our monthly digest of policy briefs and event updates.
+                        </p>
+                        <form
+                            onSubmit={(e) => e.preventDefault()}
+                            className="flex flex-col gap-2"
+                        >
+                            <input
+                                type="email"
+                                placeholder="you@example.com"
+                                aria-label="Email address"
+                                className="w-full px-3 py-2 text-sm border border-border rounded-lg bg-white/70 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                            />
+                            <button
+                                type="submit"
+                                className="btn-academic btn-academic-primary text-sm w-full"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                        <ul className="mt-6 space-y-3">
                             {footerLinks.legal.map((link) => (
                                 <li key={link.name}>
                                     <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors hover:underline hover:decoration-primary underline-offset-4">
