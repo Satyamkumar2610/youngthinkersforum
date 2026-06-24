@@ -39,6 +39,26 @@
       "date": "Jan 15, 2026",
       "readTime": "6 min read",
       "imageUrl": "/images/research_ocean_1770551233054.png"
+    },
+    {
+      "id": 5,
+      "title": "India's Climate Diplomacy at COP31",
+      "excerpt": "How India positioned itself as a bridge between developed and developing nations on climate finance.",
+      "category": "Environment & Policy",
+      "author": "S. Nair",
+      "date": "Dec 20, 2025",
+      "readTime": "9 min read",
+      "imageUrl": "/images/research_digital_1770551248490.png"
+    },
+    {
+      "id": 6,
+      "title": "The Rise of Regional Languages in Digital India",
+      "excerpt": "Examining how Bhashini and vernacular AI models are reshaping India's digital inclusion landscape.",
+      "category": "Technology & Culture",
+      "author": "P. Rao",
+      "date": "Dec 05, 2025",
+      "readTime": "7 min read",
+      "imageUrl": "/images/research_culture_1770551266099.png"
     }
   ],
   "milestones": [
