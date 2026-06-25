@@ -9,8 +9,8 @@ import { RangoliCorner, ScrollIndicator } from "@/components/ui/patterns";
 export function Hero() {
     return (
         <section className="relative min-h-[92vh] flex items-center bg-transparent overflow-hidden">
-            <div className="absolute inset-0 bg-jaali opacity-[0.03] pointer-events-none" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(178,34,34,0.10),_transparent_55%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-jaali opacity-[0.03] pointer-events-none" aria-hidden="true" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_rgba(178,34,34,0.10),_transparent_55%)] pointer-events-none" aria-hidden="true" />
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full py-12 lg:py-0">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
@@ -79,10 +79,10 @@ export function Hero() {
                     >
                         <div className="relative w-full max-w-[460px] aspect-[4/5] overflow-hidden bg-white/70 backdrop-blur border border-border shadow-floating">
                             <div className="absolute inset-0 bg-jaali opacity-[0.10]" />
-                            <div className="absolute -top-2 -left-2 text-primary/60">
+                            <div className="absolute -top-2 -left-2 text-primary/60" aria-hidden="true">
                                 <RangoliCorner size={90} />
                             </div>
-                            <div className="absolute -bottom-2 -right-2 text-primary/50 rotate-180">
+                            <div className="absolute -bottom-2 -right-2 text-primary/50 rotate-180" aria-hidden="true">
                                 <RangoliCorner size={90} />
                             </div>
 
@@ -107,6 +107,7 @@ export function Hero() {
                     {/* Scroll Indicator */}
                     <motion.div
                         className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-50 hover:opacity-100 transition-opacity"
+                        aria-label="Scroll down to explore"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.5, duration: 1 }}
