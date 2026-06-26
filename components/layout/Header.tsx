@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 const navigation = [
     { name: "About", href: "/about" },
+    { name: "Confluence", href: "/confluence" },
     { name: "Verticals", href: "/events" },
     { name: "Research", href: "/research" },
     { name: "Media", href: "/media" },
@@ -32,6 +33,15 @@ export function Header() {
     useEffect(() => {
         setMobileOpen(false);
     }, [pathname]);
+
+    // Close mobile menu on ESC key press
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setMobileOpen(false);
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, []);
 
     return (
         <header
