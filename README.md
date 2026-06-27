@@ -57,6 +57,27 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 -   **Fonts**: Playfair Display (Headers) + Inter (Body)
 -   **Animation**: Native CSS Transitions + Framer Motion
 
+## 🏆 Milestones
+| Year | Milestone |
+|------|-----------|
+| 2018 | Founded in Bhopal with 50 members |
+| 2021 | Chapters in 3+ states, 500+ members |
+| 2023 | Launched *The Indian Thinker* journal |
+| 2024 | National Recognition — Ministry of Education award |
+| 2025 | International chapters in UAE & UK; 2,500+ members |
+| 2026 | Platform redesign with Next.js 16 & Tailwind v4 |
+
+## 🤝 Contributing
+We welcome contributions from the community! Here's how to get started:
+
+1. **Fork** the repository and create a feature branch (`git checkout -b feat/your-feature`)
+2. **Make your changes** — follow the existing code style and component patterns
+3. **Test** your changes locally with `npm run dev`
+4. **Lint** your code with `npm run lint`
+5. **Submit a Pull Request** describing your changes clearly
+
+Please ensure all new components are accessible (ARIA labels, keyboard navigation) and follow the "Rooted Cosmopolitanism" design language.
+
 ---
 *Developed for the Young Thinkers' Forum.* 
 
